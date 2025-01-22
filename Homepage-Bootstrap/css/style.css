@@ -1,0 +1,436 @@
+*{
+    font-family: "Inter", serif;
+}
+
+body{
+    max-width: 100%;
+}
+
+
+
+
+
+/* NAVBAR */
+
+header{
+    max-width: 100%;
+}
+
+.barra-navigazione{
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    z-index: 1;
+}
+
+.sotto-menu{
+    background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.titolo-navbar{
+    font-weight: 700;
+    color: #546270;
+}
+
+.hamburger{
+    border: 0px !important;  
+}
+
+.line-hamburger{
+    width: 2.25rem;
+}
+
+
+
+
+
+
+
+/* SWIPER */
+
+.mioSwiper{
+    max-width: 100%;
+    width: 100%;
+
+    /*85px è l'altezza della navbar (ottenuta tramite il JS)*/
+    margin-top: 85px;
+
+    z-index: 0;
+}
+
+.slide{
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paragrafo-swiper{
+    position: absolute;
+
+    /*721px è l'alteza della immagine dello swiper.
+    L'ho calcolcata in JS. (721px / 2) in questo modo
+    posiziono il paragrafo al centro dell'immagine*/
+    /*top: calc((721px / 2) - ((354px + 24px) / 2));*/
+    
+    /*occupa il 60% del suo contenitore padre*/
+    width: 60%;
+
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.imgSwiper{
+    width: 100%;
+
+    /*100% del viewport meno l'altezza della navbar
+    (l'ho calcolata tramite il JS)*/
+    height: calc(100vh - 118px);
+
+    /*per adattare l'immagine nel suo contenitore*/
+    object-fit: cover;
+
+    /*transform: scale(1.5, 1.5);*/
+
+    /*per scurire l'immagine*/
+    filter: brightness(30%);
+}
+
+/*modifico la dimensione delle frecce*/
+.swiper-button-next:after{
+    font-size: 1.5rem;
+}
+.swiper-button-prev:after{
+    font-size: 1.5rem;
+}
+
+.frecce-swiper{
+    color: rgb(240, 238, 238);
+    border: solid;
+    border-width: 30px;
+    border-radius: 100%;
+    border-color: rgba(255, 255, 255, 0.301);
+
+    filter: brightness(50%);
+}
+
+.h1-slide{
+    font-size: 1.75rem;
+}
+
+/* Per modificare la dimensione dei pallini di scorrimento dello swiper */
+.swiper-pagination-bullet {
+    width: 15px; 
+    height: 15px;
+    background: #B4B5B8; 
+    opacity: 0.7;
+}
+
+/* quando sto sul pallino corrente (blu) */
+.swiper-pagination-bullet-active {
+    opacity: 0.5;
+    background: #007aff !important;
+}
+
+.pallini-swiper{
+    margin-bottom: 1.25rem;
+}
+
+.bottone-slide{
+    font-size: 1.25rem !important;
+    padding: 1rem 2.5rem 1rem 2.5rem !important;
+}
+  
+
+
+
+
+
+
+
+/* EUM IPSAM */
+
+.container-eup-ipsam{
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.h1-eum-ipsam{
+    font-size: 3rem;
+    font-weight: 700;
+    padding-right: 10rem !important;
+    color: #444444;
+}
+
+.h2-eum-ipsam{
+    color: #444444;
+    font-size: 1.5rem;
+    padding-right: 5rem;
+}
+
+
+
+
+
+
+
+
+/* LOGHI */
+
+.container-loghi{
+    margin-top: 4rem !important;
+    margin-bottom: 4rem !important;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-color: #F8F9FA;
+}
+
+.cc{
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* applica un filtro grigio all'immagine e
+un margin-bottom*/
+.filtro-colore{
+    filter: grayscale(100%);
+    margin-bottom: 2rem;
+}
+
+
+
+
+
+
+
+
+
+/* ICONE BLU */
+
+.icone-blu{
+    font-size: 2.5rem;
+}
+
+.bgColore{
+    background-color: #F8F9FA;
+    color: #444444;
+    margin-bottom: 4rem;
+    padding: 2rem;
+}
+
+.space{
+    margin-left: 2.5rem;
+}
+
+
+
+
+
+
+
+
+
+/* FOOTER */
+
+.footer{
+    background-color: #505D6A;
+    color: white;
+}
+
+.icone-footer{
+    background-color: #636E79;
+    border: 0px solid;
+    border-radius: 4px;
+    padding: 10px 12px 10px 12px;
+}
+
+.box-isc-bottone{
+    border-radius: 4px;
+}
+
+.box-iscrizione{
+    border: 0px solid;
+    border-radius: 4px 0 0 4px;
+    width: 70%;
+    padding: 1.5rem 6rem 1.5rem 0;
+    background-color: white;
+}
+
+.bottone-iscrizione{
+    width: 30%;
+    border-radius: 0 4px 4px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* COPYRIGHT */
+
+.copyright{
+    background-color: #4A5562;
+    color: white;
+}
+
+.freccia-quadrato{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0px solid;
+    border-radius: 4px;
+    font-size: 2rem;
+    background-color: #017BFE;
+    height: 32px;
+    width: 32px;
+    padding: 1.25rem;
+    margin-left: 1rem;
+
+    transition: 1s;
+}
+
+.freccia-quadrato:hover{
+    cursor: pointer;
+    background-color: #036dde;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERY */
+
+/* 992px */
+@media screen and (min-width: 992px) {
+    
+    /* NAVBAR */
+    .barra-navigazione{
+        padding-left: 3rem;
+        padding-right: 3rem;
+        font-size: 14px;
+    }
+
+    .voci-nav{
+        justify-content: right;
+        align-items: top !important;
+        gap: 1rem;
+    }
+
+    /*nascondo il campo inpunt della navbar*/
+    .nascondi{
+        display: none;
+    }
+
+    .bottone-started{
+        font-size: 14px;
+    }
+
+
+
+
+    /* SWIPER */
+    .paragrafo-swiper{
+        width: 80%;
+        font-size: 1rem;
+    }
+
+    .bottone-slide{
+        font-size: 1rem !important;
+        padding: 0.5rem 2rem 0.5rem 2rem !important;
+    }
+
+
+
+    /* EUM IPSAM */
+    .h1-eum-ipsam{
+        font-size: 2.5rem !important;
+        padding-right: 0 !important;
+    }
+    
+    .h2-eum-ipsam{
+        color: #444444;
+        font-size: 1.25rem;
+        padding: 0 !important;
+    }
+
+    .dim{
+        font-size: 1rem !important;
+    }
+
+
+
+
+
+    /* ICONE BLU */
+    .bgColore{
+        margin-right: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .riga-flex-nowrap{
+        flex-wrap: nowrap;
+    }
+
+
+
+
+    /* FOOTER */
+    .footer{
+        padding: 3rem;
+    }
+
+    .f-size{
+        font-size: 0.75rem;
+    }
+
+    .f-size-h{
+        font-size: 1rem;
+    }
+
+    .box-iscrizione{
+        padding: 1.25rem 6rem 1.25rem 0;
+    }
+
+
+
+
+    /* COPYRIGHT */
+    .copyright{
+        position: relative;
+    }
+
+    .freccia-quadrato{
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        font-size: 1.25rem;
+        padding: 1rem;
+    }
+
+    
+}
