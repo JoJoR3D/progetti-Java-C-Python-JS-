@@ -1,0 +1,4 @@
+pesce:2
+latte:4
+uova:2
+pane:1
