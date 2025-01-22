@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #9a4489;
+    font-family: "Parkinsans", sans-serif;
+    font-size: 1.5rem;
+    /*applico un gradiente mescolando due colori*/
+    background: radial-gradient(circle, #8939ca 0%, rgb(57, 19, 85) 100%);
+}
+
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 1rem;
+    width: 500px;
+}
+
+h1{
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 5rem;
+    color: #f9f9f9;
+    box-shadow: 0 4px 6px black;
+}
+
+.flexbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-search{
+    border-radius: 6px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    margin-top: .5rem;
+    width: 500px;
+    font-size: 1.25rem;
+    background: #ffdd00;
+    color: black;
+    border: 2px solid black;
+    transition: all .3s ease;
+    /* transition: Questa è la proprietà CSS che 
+    definisce la transizione.
+    all: Questo indica che la transizione si applica
+    a tutte le proprietà CSS dell'elemento.
+    .3s: Questo specifica la durata della transizione, 
+    ovvero 0,3 secondi.
+    ease: Questo determina la funzione di temporizzazione 
+    della transizione, che in questo caso è una 
+    curva di accelerazione e decelerazione graduale. 
+    */
+}
+
+.input-search::placeholder{
+    color: #00000091;
+}
+
+.input-search:hover{
+    background: #cbb103;
+}
+
+
+
+
+
+.elemento-lista{
+    color: #f9f9f9;
+    list-style-type: none; /*tolgo i tondini dell'elenco puntato*/
+    text-align: left;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    word-break: break-word; /*finito lo spazio del contenitore va a capo*/
+}
+
+.task-add p{
+    color: #f9f9f9;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.lista{
+    border: 1px solid #f9f9f9;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    
+    /* La combinazione di overflow: hidden; applicata a un <ul> e border applicato agli <li> può creare effetti 
+       visivi interessanti e risolvere specifici problemi di layout.
+        
+       Comprendiamo cosa fa ogni proprietà:
+       overflow: hidden; sull'<ul>: Come abbiamo già visto, questa proprietà nasconde qualsiasi contenuto che fuoriesca 
+       dai bordi dell'elemento <ul>. In pratica, taglia qualsiasi elemento <li> che non stia completamente all'interno 
+       dell'area definita per la lista.
+       border sugli <li>: Questa proprietà aggiunge un bordo intorno a ciascun elemento <li>. 
+       Il bordo può essere di qualsiasi stile (solido, punteggiato, ecc.), colore e spessore.
+    */
+    overflow: hidden; 
+    box-shadow: 0 4px 6px black; /*ombreggiatura*/
+}
+
+.lista li:last-child{
+    border-bottom: none;
+}
+
+
+
+.bin{
+    height: 3;
+    width: 3rem;
+    filter: brightness(0.7); /*sfocatura dell'immagine cestino*/
+}
+
+
+.hide{
+    display: none;
+}
