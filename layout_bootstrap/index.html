@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Pacifico&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- ICONE -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+    
+    <!-- navbar che prende il 100% della largezza della pagina superati i 992px (lg) -->
+    <header>
+        <nav class="navbar navbar-expand-xl barra-navigazione">
+             <!-- container-fluid crea un container largo il 100% della pagina. -->
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand col-8" href="#"><img src="./logo.png" alt="" id="logo"></a>
+                <button class="navbar-toggler cont-hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        
+                    <!-- rappresenta la forma dell'hamburger (3 linee).
+                    Posso cambiarla per metterci un img.svg oppure una icona -->
+                    <span class="navbar-toggler-icon hamburger"></span>
+                </button>
+
+                <div class="collapse navbar-collapse menu-tendina bg-white" id="navbarSupportedContent">
+        
+                    <!-- Questa è la classe navbar (voci del menu di navigazione)-->
+                    <!-- Per spostare a destra la navbar sostiuisco la classe me-auto (corrisponde a margin-right:auto (occupa tutto lo spazio a destra)) e con la classe ms-auto (corrisponde a margin-left:auto (occupa tutto lo spazio a sinistra)). Questo lo fa perché la navbar ha display flex -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <!-- da qui partono tutti i li.nav-item che sono le voci del menu -->
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#"><strong>Home</strong></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#"><strong>Link</strong></a>
+                      </li>
+                      <!-- nav-item-dropdown: c'è, sotto le voci del menu, un altro UL che è il sotto-menu -->
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <strong>Dropdown</strong>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item li-dropdown" href="#"><strong>Action</strong></a></li>
+                          <li><a class="dropdown-item li-dropdown" href="#"><strong>Another action</strong></a></li>
+                          <li><hr class="dropdown-divider li-dropdown"></li>
+                          <li><a class="dropdown-item li-dropdown" href="#"><strong>Something else here</strong></a></li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true"><strong>Disabled</strong></a>
+                      </li>
+                    </ul>
+                    <form class="d-flex search" role="search">
+                      <input class="form-control me-2 campo-ricerca" type="search" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-outline-success bottone-menu-tendina" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- INTRODUZIONE HERO -->
+
+        <div class="introduzione">
+
+          <div class="paragrafo-introduzione">
+              <h1 class="h1-introduzione">On the road.</h1>
+
+              <p class="testo-introduzione">Lorem ipsum dolor sit amet.</p>
+
+              <!-- bootstrap -->
+              <button class="btn btn-primary bottone-introduzione" type="submit">Button</button>
+
+          </div>
+
+        </div>
+
+
+        <!-- IMG1 -->
+
+        <div class="contenitore-container">
+          <div class="container container-img1">
+            <div class="palme">
+          
+              <img id="palme-img" src="./img1.jpg" alt="">
+          
+              <div class="paragrafo-img1">
+                  <h2 class="h2-img1">Lorem, ipsum dolor.</h2>
+                  <p class="testo-img1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet deleniti culpa laborum facere eum? Commodi omnis porro harum molestiae fugit recusandae dicta neque quisquam, cupiditate in magnam officiis esse. Nihil.</p>
+                  <!-- bootstrap -->
+                  <button class="btn btn-primary bottone-paragrafo" type="submit">Button</button>
+              </div>
+            </div>
+          
+          
+            <div class="palme palme2">
+          
+              <img id="palme-img" src="./img1.jpg" alt="">
+          
+              <div class="paragrafo-img1">
+                <h2 class="h2-img1">Lorem, ipsum dolor.</h2>
+                <p class="testo-img1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet deleniti culpa laborum facere eum? Commodi omnis porro harum molestiae fugit recusandae dicta neque quisquam, cupiditate in magnam officiis esse. Nihil.</p>
+                <!-- bootstrap -->
+                <button class="btn btn-primary bottone-paragrafo" type="submit">Button</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- BANNER -->
+
+        <img class="banner" src="./banner_2.jpg" alt="">
+        
+        <div class="container2">
+
+          <h2 class="h2-banner">Ultime Offerte</h2> 
+          
+          <!-- mt-2 pone il margine superiore a 2 -->
+          <hr class="mt-2 linea-tratteggiata">
+
+
+          <!-- CARDS -->
+          <div class="cards">
+
+            <!-- CARD 3 -->
+            <div class="mt-4 carta carta-ord-2" style="width: 22rem;">
+              <img src="./card3.jpg" class="card-img-top" alt="...">
+              <div class="card-body bg-white p-4">
+                <h5 class="card-title mb-2">Card title</h5>
+                <p class="card-text testo-carta">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Button</a>
+              </div>
+            </div>
+
+            <!-- CARD 1 -->
+            <div class="mt-5 carta carta-ord-1" style="width: 22rem;">
+              <img src="./card1.jpg" class="card-img-top" alt="...">
+              <div class="card-body bg-white p-4">
+                <h5 class="card-title mb-2">Card title</h5>
+                <p class="card-text testo-carta">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Button</a>
+              </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="mt-5 carta mb-5 carta-ord-3" style="width: 22rem;">
+              <img src="./card2.jpg" class="card-img-top" alt="...">
+              <div class="card-body bg-white p-4">
+                <h5 class="card-title mb-2">Card title</h5>
+                <p class="card-text testo-carta">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Button</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- BOX CONTATTI -->
+
+        <form class="p-4 form-box-contatti">
+
+          <h2 class="h2-banner">Contattaci</h2> 
+
+          <hr class="mt-3 linea-tratteggiata">
+
+          <div class="div-form-group">
+
+            <div class="nome-email-telefono">
+              <div class="form-group mt-3 fg">
+                <label for="exampleInputEmail1" class="mb-1 text-box">Nome e cognome</label>
+                <input type="text" class="form-control box" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+              <div class="form-group mt-3">
+                <label for="exampleInputPassword1" class="mb-1 text-box">E-mail</label>
+                <input type="email" class="form-control box" id="exampleInputPassword1">
+              </div>
+              <div class="form-group mt-3">
+                <label for="exampleInputPassword1" class="mb-1 text-box">Telefono</label>
+                <input type="text" class="form-control box" id="exampleInputPassword1">
+              </div>
+            </div>
+
+            <div class="form-group mt-3 messaggio">
+              <label for="exampleInputPassword1" class="mb-1 text-box">Messaggio</label>
+              <input type="text" class="form-control box dimBox dimensione-box" id="exampleInputPassword1">
+            </div>
+
+          </div>
+
+
+          <div class="div-checkbox-button">
+
+            <div class="form-group form-check mt-4 mb-5 quadratoSpunta">
+              <input type="checkbox" class="form-check-input box" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">At vero eos et accusam et jusso duo dolores et ea rebum</label>
+            </div>
+            <div class="div-button-box mb-5">
+              <button type="submit" class="btn btn-primary button-box">Invia</button>
+            </div>
+  
+          </div>
+
+        </form>
+
+
+    </main>
+
+
+
+
+
+    <footer class="footer p-5">
+
+      <div class="mb-3 mx-auto text-center contenitore-footer">
+        <p class="p-footer">Lorem ipsum dolor</p>
+      </div>
+
+      <div class="icons-footer mb-3 contenitore-footer">
+        <div class="icone-footer d-flex justify-content-center align-items-center gap-1">
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-twitter"></i>
+        </div>
+      </div>
+
+      <div class="copyright-footer d-flex justify-content-center align-items-center gap-1 contenitore-footer">
+        <i class="fa-regular fa-copyright icona-copyright"></i>
+        <p class="m-0 p-footer">2021 My Team.</p>
+      </div>
+
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
