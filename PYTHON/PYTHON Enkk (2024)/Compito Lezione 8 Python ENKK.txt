@@ -1,0 +1,73 @@
+# La variabile parole contiene una lista di 5 parole 
+# La variabile lista_maiuscole è una lista di 5 interi che possono essere solo 0 o 1.
+import random
+from random import randrange, sample
+import requests
+
+parole = requests.get("https://random-word-api.herokuapp.com/word?lang=it&number=5").json()
+
+print("Parole", parole)
+
+lista_maiuscole = [0]*3 + [1]*2  #lista_maisucole contiene 3 zeri ([0]*3) e due uno ([1]*2)
+random.shuffle(lista_maiuscole)  #random.shuffle() mischia le posizioni di 0 e 1 contenuti in lista_maiscole.
+print("Lista maiuscole", lista_maiuscole)
+
+# Modificare la lista parole rendendo maiuscolo l'i-esimo elemento se l'i-esimo elemento di lista_maiuscole è 1
+
+# Costruire poi due liste separate che contengono rispettivamente solo gli elementi maiuscoli e solo gli elementi minuscoli di parole
+
+
+
+#ESECUZIONE
+
+#Parte1
+# Modificare la lista parole rendendo maiuscolo l'i-esimo elemento se l'i-esimo elemento di lista_maiuscole è 1
+
+if lista_maiuscole[0] == 1:
+  parole[0]= parole[0].upper()
+if lista_maiuscole[1] == 1:
+  parole[1]= parole[1].upper()
+if lista_maiuscole[2] == 1:
+  parole[2]= parole[2].upper()
+if lista_maiuscole[3] == 1:
+  parole[3]= parole[3].upper()
+if lista_maiuscole[4] == 1:
+  parole[4]= parole[4].upper()
+  
+
+print("\nParole:",parole)
+
+
+#Parte2
+# Costruire poi due liste separate che contengono rispettivamente solo gli elementi maiuscoli e solo gli elementi minuscoli di parole
+
+max= []
+min= []
+
+if parole[0].isupper():
+  max.append(parole[0])
+else:
+  min.append(parole[0])
+
+if parole[1].isupper():
+  max.append(parole[1])
+else:
+  min.append(parole[1])
+
+if parole[2].isupper():
+  max.append(parole[2])
+else:
+  min.append(parole[2])
+
+if parole[3].isupper():
+  max.append(parole[3])
+else:
+  min.append(parole[3])
+
+if parole[4].isupper():
+  max.append(parole[4])
+else:
+  min.append(parole[4])
+
+print("Max:",max)
+print("Min:",min)

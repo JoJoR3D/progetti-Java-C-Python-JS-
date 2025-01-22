@@ -1,0 +1,100 @@
+lista= ["ciao", "ragazzo", "pazzo"]
+
+print(f"Hai scritto {len(lista)} parole")
+print("Hai scritto",len(lista),"parole")
+
+#se nella print prima delle virgolette scrivo il carattere 'f' posso inserire la variabile da stampare tra le parentesi graffe direttamente nelle virgolette.
+#Esempio:
+#print(f"Hai scritto {len(lista)} parole")
+#invece di: print("Hai scritto",len(lista),"parole")
+
+
+
+
+
+
+
+
+
+
+exit(0)
+
+
+
+
+
+
+
+#creare una lista partendo da due liste mediante operatore '+'
+
+l1= [0,2,4,6,8,10,12,14]
+l2= [1,3,5,7,9]
+l3= l1 + l2 #concatenazione di liste
+print(l3)
+print(max(l3))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#creare una lista partendo da due liste
+
+#FUNZIONE
+def unione_2liste(l1,l2):
+  n=len(l1)
+  m=len(l2)
+  controllo=0
+  dentro1=0
+  dentro2=0
+  
+  if n < m:
+    lung= m
+  elif n >= m:
+    lung= n
+    
+  for i in range(0,lung):
+    if i >= n:
+      controllo= 1
+      dentro1=1
+      indice2= i
+    elif i >= m:
+      controllo= 1
+      dentro2=1
+      indice1= i
+    else:
+      indice1= i
+      indice2= i
+
+    print(i,n,m,indice1,indice2)
+    
+    if l1[indice1] < l2[indice2] and controllo == 0:
+      l3.append(l1[indice1])
+      l3.append(l2[indice2])
+      
+    elif l1[indice1] >= l2[indice2] and controllo == 0:
+      l3.append(l2[indice1])
+      l3.append(l1[indice2])
+      
+    elif dentro1 == 1:
+      l3.append(l2[indice2])
+      
+    elif dentro2 == 1:
+      l3.append(l1[indice1])
+
+
+
+#MAIN()
+l1= [0,2,4,6,8,10,12,14]
+l2= [1,3,5,7,9]
+l3= []
+unione_2liste(l1,l2)
+print(l3)

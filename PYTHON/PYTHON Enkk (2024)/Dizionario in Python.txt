@@ -1,0 +1,69 @@
+#DIZIONARIO
+
+dizionario= {"nome" : "Luca", "cognome" : "Bianchi", "eta" : 30}
+
+print(dizionario)
+print(type(dizionario)) #ritorna 'dict' che è il tipo che identifica i dizionari in python.
+
+print(dizionario["nome"])
+
+print(dizionario["cognome"])
+
+print(dizionario["eta"])
+
+print("\n\n")
+
+
+#Per aggiungere un nuovo elemento al nostro dizionario facciamo in questa maniera:
+dizionario["giorno_nascita"]= 10
+print(dizionario)
+
+print("\n\n")
+
+
+#Allo stesso modo possiamo sostituire il valore associato ad una chiave già presente nel dizionario:
+dizionario["nome"]= "Gianluca"
+print(dizionario)
+
+print("\n\n")
+
+
+#Per verificare se una chiave è presente o meno all'interno di un dizionario possiamo utilizzare gli operatori in e not in:
+print("cognome" in dizionario)
+print("conto" not in dizionario)
+
+print("\n\n")
+
+
+#Per rimuovere una coppia chiave-valore possiamo utilizzare l'istruzione del:
+del dizionario["cognome"]
+print(dizionario)
+
+print("\n\n")
+
+
+#Come per altri tipi di dato, anche il tipo dict dispone di alcuni metodi propri. Esistono tre metodi associati ai dizionari che ci consentono di ottenere in output una lista di tutte le chiavi presenti, o di tutti i valori presenti, o di entrambi allo stesso tempo: keys(), values() ed items().
+print(dizionario.keys())
+print(dizionario.values())
+print(dizionario.items())
+
+#Come possiamo interpretare dall'output, utilizzando questi 3 metodi non ci vengono restituiti dei valori di tipi lista ma bensì, oggetti di tipo dict_keys, dict_values e dict_items.
+#Se abbiamo bisogno di una lista vera e propria possiamo utilizzare anche qui la nostra cara funzione list():
+lista= [dizionario]
+print(lista)
+print(type(lista))
+
+print("\n\n")
+
+
+#Possiamo inoltre utilizzare questi metodi in combinazione con un ciclo for. Ad esempio, per mandare in print tutte le chiavi del dizionario possiamo fare:
+for i in dizionario.keys():
+  print(i)
+
+print("\n\n")
+
+
+#Ma cosa succederebbe qualora provassimo a richiamare un valore associato a una chiave che non esiste nel nostro dizionario? Come è facile ipotizzare otterremmo un errore.
+#Fortunatamente, i dizionari di Python dispongono di un metodo specifico ideato proprio per situazioni come queste: il metodo get(). A questo passiamo due parametri: la chiave per il valore che stiamo cercando, e un valore di default come una sorta di "paracadute d'emergenza", qualora la chiave richiesta non esista.
+chiave= input("Inserire chiave da trovare nel dizionario: ")
+print(dizionario.get(chiave,"Chiave non trovata!"))

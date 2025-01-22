@@ -1,0 +1,895 @@
+#https://www.programmareinpython.it/esercizi-python/
+
+#ESERCIZI IN PYTHON
+
+#https://www.programmareinpython.it/esercizi-python/
+
+#ESERCIZI IN PYTHON
+
+#Esercizio 021
+#La Segreteria
+#Scrivi una funzione che accetti una lista di dizionari rappresentante una scuola. Ogni dizionario rappresenta uno studente e contiene nome, cognome, classe e voti. La funzione deve stampare un elenco di tutti gli studenti e calcolare la media dei voti di ciascuno.
+
+#DIZIONARIO
+
+dizionario= {"nome" : "Luca", "cognome" : "Bianchi", "classe" : "V", "voti" : [20,30,24,25],
+            "nome1" : "Gianluca", "cognome1" : "Rossi", "classe1" : "V", "voti1" : [29,21,27,30]}
+
+
+#Inserisco in una lista il nome e cognome del primo studente e lo unisco in unica stringa mediante funzione .join()
+lista_nomi1= [dizionario["nome"], dizionario["cognome"]]
+list1= " ".join(lista_nomi1)
+print(list1)
+
+#Media voti primo studente
+#Fuznione
+def calcolo_media(valore):
+  print(valore)
+  somma= sum(valore)
+  n= len(valore)
+  #print(somma,n)
+  media= somma/n
+ 
+  return media
+
+
+#Chiamata funzione
+Media= calcolo_media(dizionario["voti"])
+print(Media)
+print("\n\n")
+
+
+
+#Inserisco in una lista il nome e cognome del secondo studente e lo unisco in unica stringa mediante funzione .join()
+lista_nomi2= [dizionario["nome1"], dizionario["cognome1"]]
+list2= " ".join(lista_nomi2)
+print(list2)
+
+#Media voti secondo studente
+#Chiamata funzione
+Media= calcolo_media(dizionario["voti1"])
+print(Media)
+
+
+
+
+
+
+
+
+
+
+
+
+#ALTRA VERSIONE DEL ESERCIZIO 021
+
+dizionario1= {"nome" : "Luca Bianchi", "classe" : "V", "voti" : [20,30,24,25]}
+dizionario2= {"nome" : "Gianluca Rossi", "classe" : "V", "voti" : [29,21,27,30]}
+
+Studenti= [dizionario1["nome"],dizionario2["nome"]]
+Voti= [dizionario1["voti"],dizionario2["voti"]]
+
+
+def funz(Studenti,Voti):
+  n=len(Studenti)
+
+  for i in range(0,n):
+    m= len(Voti[i])
+    print(f"Studente: {Studenti[i]}")
+    somma= sum(Voti[i])
+    media= somma/m
+    print(f"Media studente: {media}")
+
+
+
+funz(Studenti,Voti)
+
+
+
+
+
+
+
+
+
+exit(0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 020
+#Print senza andare a capo
+#Scrivi una funzione che prenda una serie di input dall'utente utilizzando un ciclo while e li stampi con la funzione print senza andare a capo. Il ciclo while si deve interrompere quando l'utente preme INVIO senza scrivere nulla.
+
+#FUNZIONE
+def senza_andare_a_capo(testo):
+  while testo != "":  #indica che non ho inserito alcun testo
+    testo= input()
+    if testo != "":
+      print(testo)
+
+
+#MAIN()
+testo= input("Inserire del testo: ")
+senza_andare_a_capo(testo)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 019
+#Lista di Colori
+#Scrivi una funzione che aggiunga ad una lista 10 colori inseriti dall'utente. Il programma deve poi chiedere all'utente di inserire una lettera e mostrare in output solo i colori nella lista che iniziano con quella lettera.
+
+#Suggerimento: potresti usare la funzione range e il metodo startswith().
+
+
+#permette di inserire in una lista dieci colori
+def colori(lista):
+  print("Inserire 10 colori:\n")
+  contatore= 10
+
+  for i in range(0,contatore):
+    print(i+1)
+    col= input("colore: ")
+    lista.append(col)
+
+
+#verifica se l'iniziale dei colori inseriti concide con la lettera inserita. Se coincide ritorna quel colore.
+#starswith() serve a controllare se una stringa inizia per la lettera passata alla funzione startswith()
+def verifica(lista,lettera):
+  n=len(lista)
+  for i in range(0,n):
+    if lista[i].lower().startswith(lettera):
+      print(lista[i])
+
+
+
+
+lista= []
+colori(lista)
+print(lista)
+
+lettera= input("Inserire una lettera:\n")
+verifica(lista,lettera)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 018
+#Il Numero Perfetto
+#Un numero perfetto è un numero naturale uguale alla somma dei suoi divisori positivi, escluso sé stesso. Scrivi una funzione che verifichi se un numero è perfetto oppure no.
+
+
+
+#Per trovare i divisori di un numero, si può iniziare dividendo quel numero per tutti i numeri inferiori a esso. Ogni volta che la divisione non lascia resto, allora il numero utilizzato per dividere è un divisore.
+
+
+#FUNZIONE
+def numero_perfetto(numero,contatore,lista):
+  while contatore > 0:
+    quoziente= numero/contatore
+    intquoziente= int(quoziente)
+    a= contatore*intquoziente
+    resto= numero-a
+    #print("intquoziente:",intquoziente,"Contatore:",contatore,"A:",a,"Resto:",resto)
+
+    if resto == 0:
+      lista.append(contatore)
+  
+    contatore -= 1
+
+
+#MAIN()
+valore= input("Inserisci un numero intero:\n")
+numero= int(valore)
+lista= []
+
+contatore= numero - 1
+
+#CHIAMATA FUNZIONE
+numero_perfetto(numero,contatore,lista)
+
+somma= sum(lista)
+if somma == numero:
+  print("Il numero inserito:",numero,"è un numero perfetto")
+else:
+  print("Il numero inserito:",numero,"NON è un numero perfetto")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 017
+#Trova ASCII
+#Scrivi una funzione che, dato un carattere in ingresso, restituisca in output il codice ASCII associato al carattere passato.
+
+#Anche in questo caso, usare una libreria potrebbe facilitare la risoluzione dell'esercizio!
+
+carattere= input("Inserire un carattere:\n")
+
+#Nel linguaggio python la funzione ord() restituisce il codice Ascii di un determinato carattere o simbolo
+
+ASCII= ord(carattere)
+
+print("Codice ASCII del carattere inserito:",ASCII)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 016
+#Info di Sistema
+#Scrivi una funzione che fornisca in output il nome del Sistema Operativo utilizzato con eventuali relative informazioni sulla release corrente.
+
+#Suggerimento: per risolvere questo esercizio potreste dover utilizzare una libreria! ;)
+
+
+import platform
+
+print(platform.system())
+print(platform.machine())
+print(platform.processor())
+print(platform.architecture())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 015
+#Funzione Genera MAC
+#Un indirizzo MAC (Media Access Control address) è un indirizzo univoco associato dal #produttore, a un chipset per comunicazioni wireless (es WiFi o Bluetooth), composto da 6 coppie #di cifre esadecimali separate da due punti.
+
+#Un esempio di MAC è 02:FF:A5:F2:55:12.
+
+#Scrivi una funzione genera_mac() che generi degli indirizzi MAC pseudo casuali utilizzando il modulo random.
+
+
+import random
+
+
+#FUNZIONI:
+
+def esadecimale(valore,new):
+  alfabeto= [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"]
+  n= len(alfabeto)
+  intquoziente=1
+  dentro1=0
+  dentro2=0
+
+#formula matematica per convertire un numero decimale in esadecimale
+#Metodo della divisione:
+#Dividere il numero decimale per 16. Il quoziente diventa la seconda cifra esadecimale (o 0 se il quoziente è 0).
+#Il resto della divisione diventa la prima cifra esadecimale.
+#Ripetere i passaggi 1 e 2 con il quoziente ottenuto, utilizzandolo come nuovo numero decimale da dividere, fino a quando il quoziente non diventa 0.
+#Le cifre esadecimali ottenute, lette da destra a sinistra, rappresentano il numero convertito.
+ 
+  while intquoziente != 0:
+    quoziente= valore/16
+    intquoziente= int(quoziente)
+    print("QUOZIENTE:",intquoziente)
+    resto= int(valore-(intquoziente*16))
+    
+    valore= intquoziente
+    print("RESTO:",resto," Valore:",valore)
+
+    if dentro1 == 0:
+      for i in range(0,n):
+        if resto == i:
+          new.append(alfabeto[i])
+
+      dentro1= 1
+    
+    if dentro2 == 0:
+      for i in range(0,n):
+        if intquoziente == i:
+          new.append(alfabeto[i])
+
+      dentro2= 1
+
+  
+
+
+#esadecimale(valore,new)
+
+
+#Mia versione della funzione reversed()
+def reverse(new,lista):
+  n= len(new)
+  
+ #eseguo un ciclo for dall'ultimo valore fino al primo e inserisco i valori in una nuova lista.
+  
+  for i in range(n-1,-1,-1): 
+    lista.append(new[i])
+
+
+
+    
+#reverse(new,lista)
+#print(lista)
+
+
+#Uso della funzione reversed()
+
+#iteratore= reversed(new)
+#for i in iteratore:
+#  print(i)
+
+
+#La funzione reversed() restituisce un oggetto di tipo particolare: un iteratore.
+
+#Il concetto di iteratore è molto importante e per il momento basta sapere che si tratta di un oggetto che conosce il modo con cui scorrere una sequenza, come una lista, e che permette di visitare li elementi di questa sequenza uno alla volta.
+
+#In pratica, un iteratore non è una copia della lista, ma un oggetto che permette di attraversarla in base ad un ordine che lui stesso stabilisce.
+
+#Il vantaggio di un iteratore è che non modifichiamo la lista originale e non creiamo nemmeno una nuova lista. Semplicemente usiamo l'iteratore per visitare gli elementi della lista in ordine inverso.
+
+#Esempio: Per ottenere un iteratore invochiamo la funzione reversed passandogli la lista:
+
+#iteratore = reversed(new)
+
+#Adesso possiamo usare un ciclo for per visitare gli elementi dell'iteratore:
+
+#for i in iteratore:
+  #print(i)
+    
+
+
+
+#FUNZIONE PER PULIRE LISTA
+
+def clean(new):
+  n= len(new)
+  i=0
+  print("N:",n)
+
+#la funzione .pop() elimina un elemento dalla lista passandogli come parametro l'indice (posizione) dell'elemento nella lista (il valore da passare deve essere numerico, es: 0,3,4, non può essere ad esempio l'indice 'i' che cicla su un for o while)
+#Se non si passa nulla alla funzione .pop() lei eliminerà l'ultimo elemento della lista, quindi anche inserendola in un ciclo, ad ogni iterazione lei andrà ad eliminare l'ultimo elemento della lista. Esempio: lista=[1,2]. Alla prima iterazione eliminerà l'elemento 2, poi alla seconda iterazione l'elemento 1 (che con l'eleiminazione dell'elemento 2 al ciclo precedente, è diventato l'ultimo elemento della lista).
+  
+  while i < n:
+    new.pop()
+    print("I:",i)
+    i += 1
+
+
+
+
+
+
+
+#MAIN():
+new= []
+lista= []
+stringa= ""
+
+#Qui una volta seleziono il numero decimale e una volta quello esadecimale
+coppia=6
+i=0
+
+while i < coppia:
+  valore= random.randint(0,99)
+  print("Valore generato casualmente:",valore)
+  scelta= random.randint(0,1)
+  print("Scelta:",scelta)
+
+#scelta == 0 genera un numero decimale; scelta == 1 genera un numero decimale e lo converte in esadecimale.
+  
+  if scelta == 0:
+    if valore < 10:
+      a= "0"
+      stringa= stringa + a + str(valore)
+    else:
+      stringa= stringa + str(valore)
+
+
+  
+  elif scelta == 1:
+    esadecimale(valore,new)
+    reverse(new,lista)
+    print(new, valore)
+
+    n= len(lista)  
+    for y in range(0,n):
+      stringa= stringa + str(lista[y])
+
+    clean(new)
+    clean(lista)
+
+  if i < coppia-1:
+    stringa= stringa + ":"
+    print(stringa,"\n")
+
+  i += 1
+
+
+
+print(stringa)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 014
+#Il Geometra
+#Scrivi una funzione che, a scelta dell'utente, calcoli l'area di:
+
+#un cerchio
+#un quadrato
+#un rettangolo
+#un triangolo
+#Sentitevi liberi di estendere le potenzialità della funzione quanto meglio credete!
+
+scelta= input("Sceglie se calcolare l'aerea di:\ncerchio\nquadrato\nrettangolo\ntrinagolo\n\n")
+
+def calcoli(scelta):
+  if scelta.lower() == "cerchio":
+    valore= input("Per calcolare l'area del cerchio inserire il raggio:\n")
+    raggio= float(valore)
+    area=raggio*3.14159
+    print("Area:",area)
+
+  elif scelta.lower() == "quadrato":
+    valore= input("Per calcolare l'area del quandrato inserire il lato:\n")
+    lato= float(valore)
+    area=lato*lato
+    print("Area:",area)
+
+  elif scelta.lower() == "rettangolo":
+    valore= input("Per calcolare l'area del rettangolo inserire base e altezza separati da una virgola:\n")
+    lista= valore.split(",")
+    valore1= float(lista[0])
+    valore2= float(lista[1])
+    area=valore1*valore2
+    print("Area:",area)
+
+  elif scelta.lower() == "triangolo":
+    valore= input("Per calcolare l'area del rettangolo inserire base e altezza separati da una virgola:\n")
+    lista= valore.split(",")
+    valore1= float(lista[0])
+    valore2= float(lista[1])
+    area=(valore1*valore2)/2
+    print("Area:",area)
+
+  else:
+    print("Errore!")
+
+
+calcoli(scelta)
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 013
+#Il Signore del Tempo
+#Scrivi una semplice funzione che converta un dato numero di giorni, ore e minuti, passati dall'utente tramite funzione input, in secondi.
+
+valore= input("Immettere un valore in secondi\n")
+secondi= int(valore)
+
+def convert(secondi):
+  minuti= secondi/60
+  print("Minuti:",minuti)
+  ore= minuti/60
+  print("Ore:",ore)
+  giorni= ore/24
+  print("Giorni:",giorni)
+
+convert(secondi)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 012
+#L'Americana
+#Scrivi una funzione che, dato in ingresso un valore espresso in metri, mandi in print l'equivalente in miglia terrestri, iarde, piedi e pollici. Come risolverai questo esercizio?
+
+valore= input("Inserire un valore espresso in metro\n")
+
+metro= float(valore)
+
+def convert(metro):
+  print("Metro:",metro)
+  print("Miglia:",metro/1609)
+  print("Iarde:",metro*1.094)
+  print("Piedi:",metro*3.281)
+  print("Pollici:",metro*39.37)
+
+convert(metro)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 011
+#Il Frequenzimetro
+#Scrivi una funzione che, data una stringa come parametro, restituisca un dizionario rappresentante la "frequenza di comparsa" di ciascun carattere componente la stringa.
+
+#Per fare un esempio, data una stringa "ababcc", otterremo in risultato {"a": 2, "b": 2, "c": 2}
+
+alfabeto= ["a","b","c","d","e","f","g","h","i","l","m","n","o","p","q","r","s","t","u","v","z"]
+dizionario= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+stringa= input("Inserire una stringa\n")
+
+#questa function conta il numero di occorrenze dei caratteri della stringa data in input e per ogni posizione corrispondente al carattere nella lista alfabeto incrementa, nella stessa posizione, di uno il contenuto della lista dizionario.
+
+def fun(stringa,alfabeto,dizionario):
+  n= len(alfabeto)
+  m= len(stringa)
+  for j in range(0,m):
+    for i in range(0,n):
+      if stringa[j] == alfabeto[i]:
+        dizionario[i]= dizionario[i] + 1
+
+  return dizionario
+  
+fun(stringa,alfabeto,dizionario)
+
+
+#questa funzione stampa per ogni lettera (alfabeto) il numero di occorrenze (dizionario) dei caratteri della stringa dati in input.
+
+def fun1(dizionario,alfabeto):
+  n= len(alfabeto)
+  for i in range(0,n):
+    print(alfabeto[i],":",dizionario[i])
+
+fun1(dizionario,alfabeto)
+
+#print(dizionario)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 010
+#A Ciascuno il Suo
+#Scrivi una funzione che data in ingresso una lista A contenente n parole, restituisca in output una lista B di interi che rappresentano la lunghezza delle parole contenute in A.
+
+#Questo esercizio può essere risolto anche usando una list comprehension.
+
+lista1= ["camminare", "ananas", "bilancia", "smartphone", "bio"]
+n= len(lista1)
+lista2= []
+
+for i in range(0,n):
+  lista2.append(len(lista1[i]))
+
+print(lista2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 009
+#Scriviamo la nostra versione di len()
+#Scrivi una funzione che restituisca la lunghezza di una stringa o lista passata come parametro. In sostanza, seppur presente, provate a scrivere la nostra versione della funzione len!
+
+lista= [1,2,3,4,5,10]
+cont=0
+i=0
+
+#aggiungo un carattere alla lista per inidicare che a quel carattere termina la lista.
+lista.append("\0")  
+print(lista)
+
+while lista[i] != "\0":
+  cont += 1
+  i += 1
+
+#una volta contati il numero di caratteri della lista, elimino il carattere che avevo aggiunto in precedenza.
+lista.pop(i)
+
+print(lista)
+print(cont)
+
+
+#Versione alternativa: SOLUZIONE fornita dal sito
+lenght=0
+
+#basta passare lista a un ciclo for e in automatico il ciclo termina al finire delgi elementi della lista.
+
+for a in lista:
+  lenght += 1
+
+print(lenght)
+
+
+
+
+
+
+
+
+
+#Esercizio 008
+#Generatore di Istogrammi
+#Scrivi una semplice funzione che, data una lista di numeri, fornisca in output un istogramma basato su questi numeri, usando asterischi per disegnarlo.
+
+#Data ad esempio la lista [3, 7, 9, 5], la funzione dovrà produrre questa sequenza:
+
+# ***
+
+# *******
+
+# *********
+
+# *****
+
+lista= [4,2,7,3,1,10]
+n=len(lista)
+carattere= "*"
+i=0
+
+for i in range(0,n):
+  print(carattere*lista[i])
+  print("\n")
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 007
+#Solamente per Soci
+#Scrivi un programma che a partire da un elemento e una lista di elementi dica in output se l'elemento passato sia presente o meno nella lista. Qualora l'elemento sia presente nella lista, il programma dovrà comunicarci l'indice dell'elemento tramite il metodo index.
+
+#Nel linguaggio python per trovare la posizione di un elemento in una lista utilizzo il metodo index. 
+#nomelista.index(elemento)
+#Come parametro inserisco l'elemento che voglio trovare nella lista. Può trattarsi di una stringa o di un valore numerico.
+
+
+lista= ["penna", "scrivania", "sedia", "lavagna"]
+
+elemento= input("Inserire un elemento\n")
+
+if elemento.lower() in lista:
+  print("L'elemento (",elemento,") è nella lista e si trova alla posizione",lista.index(elemento))
+else:
+  print("L'elemento (",elemento,") NON è nella lista")
+
+
+#VERSIONE ALTERNATIVA che non fa uso del metodo .index()
+dentro=0
+n=len(lista)
+
+for i in range(0,n):
+  if elemento == lista[i]:
+    print("L'elemento (",elemento,") è nella lista e si trova alla posizione",i)
+    dentro=1
+
+if dentro == 0:
+  print("L'elemento (",elemento,") NON è nella lista")
+
+
+
+
+
+
+
+
+
+#Esercizio 006
+#Moltiplicatore Inarrestabile
+#Scrivi un programma "moltiplicatore" che, data una lista di numeri, moltiplichi tra loro tutti gli elementi.
+
+lista= [1,2,3,4,5,6]
+n= len(lista)
+molt=1
+
+for i in range(0,n):
+  molt= molt * lista[i]
+
+print(molt)
+
+
+
+
+
+
+
+
+
+#Esercizio 5
+#Somma Inarrestabile
+#Scrivi un semplice programma che, data una lista di numeri, sommi tra loro tutti gli elementi. Suggerimento: anche se esiste la funzione sum() per risolvere l'esercizio potresti usare il ciclo for.
+
+lista= [1,2,3,4,5]
+n= len(lista)
+somma=0
+
+
+for i in range(0,n):
+  somma= somma + lista[i]
+  print(i)
+
+print(somma)
+
+#In Python, quando si usa un ciclo for, la variabile specificata (i) viene inizializzata dal ciclo stesso. Ad ogni iterazione del ciclo, questa assume il valore relativo nell'iterabile.
+#In altre parole, non è necessario definire o inizializzare la variabile numero prima del ciclo for. Il ciclo for si occupa sia della creazione che dell'assegnazione del valore alla variabile ad ogni passo.
+#La funzione range() ci permette di impostare un intervallo di esecuzione tanto ampio quanto il numero che le passiamo come parametro, senza però includere il numero passato in sé. Di default, la funzione range() di Python inizia a contare a partire da 0; per comodità potete pensare a questo intervallo come a una sorta di lista, in questo caso di 11 elementi, da 0 a 10 inclusi.
+#Ora che abbiamo imparato come funziona un ciclo for e a cosa serve la funzione range() di Python, vediamo un po' come poter ottenere il massimo da questa, in quanto dovete sapere che possiamo passarle ben 3 parametri.
+#Questo ci permette di impostare oltre a un punto di inizio dell'intervallo anche un punto di fine personalizzato, e un passo di avanzamento.
+
+
+
+
+
+
+#Esercizio 4
+#Sei una Vocale?
+#Scrivi un programma che chieda all'utente una stringa composta da un solo carattere e dica se si tratta di una vocale oppure no.
+
+vocali= ["a","e","i","o","u"]
+n=len(vocali)
+i=0
+dentro=0
+
+stringa= input("Inserire un carattere a scelta:\n")
+
+while i < n:
+  if stringa in vocali[i]:
+    print("Il carattere inserito è una vocale")
+    dentro=1
+
+  i += 1
+
+  if i == n and dentro == 0:
+    print("Il carattere inserito è una consonante")
+  

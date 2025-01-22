@@ -1,0 +1,322 @@
+#COSTRUTTO DI SELEZIONE:
+#Esempio:
+>>> inserisciPassword= input("Inserisci Password: ")
+Inserisci Password: ciao
+>>> if password == inserisciPassword:
+...  print("Corretto")
+... else:
+...  print("Password errata")
+...
+Corretto
+
+#Altro esempio:
+>>> inserisciPassword= input("Inserisci Password: ")
+Inserisci Password: tiao
+>>> if password == inserisciPassword:
+...  print("Corretto")
+... else:
+...  print("Password errata")
+...
+Password errata
+
+#Altro esempio:
+>>> password_salvata=5
+>>> password_inserita=7
+>>> if password_inserita > password_salvata:
+...     print("Errore, la password inserita è più grande")
+... else:
+...     print("Corretto, la password inserita è grande uguale o più piccola della password salvata")
+...
+Errore, la password inserita è più grande
+
+
+#VALORE DI VERITA' (BOOLEANO, tipo 'bool')
+>>> password_salvata=5
+>>> password_inserita=7
+>> x= password_salvata < password_inserita
+>> print(x)
+True
+>>> type(x)
+<class 'bool'>
+
+
+
+#ESEMPIO:
+#condizione che verifichi che password e nome utente corrispondano e la posizione sia conosciuta
+>>> password= "x"
+>>> nome_utente= "y"
+>>> password_inserita= "y"
+>>> nom_inser= "x"
+>>> posizione_conosciuta= True
+>>> if password == password_inserita and nome_utente == nom_inser and posizione_conosciuta == True:
+...     print("Ok")
+... else:
+...     print("Doh")
+...
+Doh
+
+
+
+#ESEMPIO:
+#Scrivere una condizione che sia vera se x e y sono uguali oppure uno è il soppio dell'altro
+>>> x=5
+>>> y=10
+>>> if x == y or y == x*2 or x == y*2:
+...     print("OK!")
+... else:
+...     print("DOH!")
+...
+OK!
+
+
+
+
+
+
+
+#COMPITO:
+# Creare una applicazione bancaria che permette di effettuare un prelievo o deposito monetario. 
+
+# 1. Effettuare il login chiedendo separatamente nome utente e password. Ci sono solo due utenti registrati. Se il nome utente o la password sono errati (la coppia non è corretta, oppure il nome utente non esiste), dare un messaggio di errore e terminare il programma.
+
+# 2. Se il login è corretto, stampare il bilancio del conto e chiedere se l'operazione desiderata è prelievo o deposito. Qualunque altro inserimento risulta nella terminazione del programma con un messaggio di errore.
+# op = input("Prelievo o deposito?") 
+
+# 3. Se l'operazione è di deposito, chiedere la cifra (si assuma che l'utente inserisca un intero), aggiornare il totale del conto e stamparlo a video terminando così il programma.
+
+# 4. Se l'operazione è di prelievo, chiedere la cifra (si assuma che l'utente inserisca un intero) e verificare che il bilancio sia sufficente. Se lo è detrarlo dal totale e stampare il nuovo bilancio a video terminando così il programma. Se non lo è terminare il programma con un messaggio di errore.
+
+
+user1 = "Enrico"
+psw1 = "latteria!"
+bilancio1 = 2000
+
+user2 = "Michelle"
+psw2 = "coprofagia@"
+bilancio2 = 120
+
+
+
+#PROGRAMMA:
+nome_utente1= "Enrico"
+password1= "latteria!"
+bilancio1= 2000
+
+nome_utente2= "Michelle"
+password2= "coprofagia@"
+bilancio2= 120
+
+login1= False
+login2= False
+
+print("Benvenuto!")
+user= input("Inserisci nome utente: ")
+psw= input("Inserisci password: ")
+
+if user == nome_utente1 or psw == password1:
+  if user == nome_utente1 and psw == password1:
+    print("Accesso consentito")
+    login1= True
+  elif user != nome_utente1:
+    print("Nome utente sbagliato!")
+    login1= False
+  elif psw != password1:
+    print("Password errata!")
+    login1= False
+  elif user != nome_utente1 and psw != password1:
+    print("Nome utente e password inserite sono sbagliate!")
+    login1= False
+
+elif user == nome_utente2 or psw == password2:
+  if user == nome_utente2 and psw == password2:
+    print("Accesso consentito")
+    login2= True
+  elif user != nome_utente2:
+    print("Nome utente sbagliato!")
+    login2= False
+  elif psw != password2:
+    print("Password errata!")
+    login2= False
+  elif user != nome_utente2 and psw != password2:
+    print("Nome utente e password inserite sono sbagliate!")
+    login2= False
+
+elif (user != nome_utente2 or user != nome_utente1) and (psw != password2 or psw != password1):
+  print("ERRORE utente non trovato!")
+
+
+if login1 == True:
+  print("Bilancio conto: ", bilancio1)
+  scelta= input("Se si desidera prelevare premere 1, se si desidera depositare premere 2: ")
+  if scelta == "2":
+    importo_deposito= input("Cifra che si vuole depositare? ")
+    bilancio1= bilancio1 + int(importo_deposito)
+    print("Bilancio aggiornato: ", bilancio1)
+  elif scelta == "1":
+    importo_prelievo= input("Cifra che si vuole prelevare? ")
+    if int(importo_prelievo) <= bilancio1:
+      bilancio1= bilancio1 - int(importo_prelievo)
+      print("Bilancio aggiornato: ", bilancio1)
+    else: 
+      print("Bilancio non sufficiente")
+  else:
+    print("Scelta sbagliata!")
+
+elif login2 == True:
+  print("Bilancio conto: ", bilancio2)
+  scelta= input("Se si desidera prelevare premere 1, se si desidera depositare premere 2: ")
+  if scelta == "2":
+    importo_deposito= input("Cifra che si vuole depositare? ")
+    bilancio2= bilancio2 + int(importo_deposito)
+    print("Bilancio aggiornato: ", bilancio2)
+  elif scelta == "1":
+    importo_prelievo= input("Cifra che si vuole prelevare? ")
+    if int(importo_prelievo) <= bilancio2:
+      bilancio2= bilancio2 - int(importo_prelievo)
+      print("Bilancio aggiornato: ", bilancio2)
+    else: 
+      print("Bilancio non sufficiente")
+		
+
+
+
+
+#Versione 2 COMPITO:
+nome_utente1= "Enrico"
+password1= "latteria!"
+bilancio1= 2000
+
+nome_utente2= "Michelle"
+password2= "coprofagia@"
+bilancio2= 120
+
+user= input("Inserisci nome utente: ")
+password= input("Inserisci password: ")
+
+user1= user == nome_utente1 and password == password1
+
+user2= user == nome_utente2 and password == password2
+
+#user1 e user2 sono in questo caso due variabili booleane perché se user è uguale a nome_utente1 e password è uguale a password1, user1 sarà True, viceversa se almeno user o password sono diversi sarà False.
+#stesso vale per user2.
+#se user1 è True, user2 sarà False o viceversa. Non possono essere entrambi True perchè solo un utente può eseguire il login.
+#Scrivere: if user1 è equivalente a scrivere: if user1 == True
+
+if user1:
+  print("Accesso consentito")
+  print("Bilancio: ", bilancio1)
+  operazione= input("Si vuole eseguire un prelievo o un deposito? ")
+  if operazione == "deposito":
+    deposito= input("Indicare importo che si vuole depositare: ")
+    bilancio1= bilancio1 + int(deposito)
+    print("Bilancio aggiornato: ", bilancio1)
+    
+  elif operazione == "prelievo":
+    prelievo= input("Quanto si vuole prelevare? ")
+    if int(prelievo) > bilancio1:
+      print("Bilancio non sufficiente")
+    else:
+      bilancio1= bilancio1 - int(prelievo)
+      print("Bilancio aggiornato: ", bilancio1)
+
+elif user2:
+  print("Accesso consentito")
+  print("Bilancio: ", bilancio2)
+  operazione= input("Si vuole eseguire un prelievo o un deposito? ")
+  if operazione == "deposito":
+    deposito= input("Indicare importo che si vuole depositare: ")
+    bilancio2= bilancio2 + int(deposito)
+    print("Bilancio aggiornato: ", bilancio2)
+
+  elif operazione == "prelievo":
+    prelievo= input("Quanto si vuole prelevare? ")
+    if int(prelievo) > bilancio2:
+      print("Bilancio non sufficiente")
+    else:
+      bilancio2= bilancio2 - int(prelievo)
+      print("Bilancio aggiornato: ", bilancio2)
+
+  else:
+    print("ERRORE!")
+
+else:
+  print("Utente non trovato!")
+
+
+
+
+
+#Versione 3 COMPITO:
+nome_utente1= "Enrico"
+password1= "latteria!"
+bilancio1= 2000
+
+nome_utente2= "Michelle"
+password2= "coprofagia@"
+bilancio2= 120
+
+user= input("Inserisci nome utente: ")
+password= input("Inserisci password: ")
+
+user1= user == nome_utente1 and password == password1
+
+user2= user == nome_utente2 and password == password2
+
+
+if user1 or user2:
+ 
+  if user1:
+    print("Accesso consentito", user)
+    print("Bilancio: ", bilancio1)
+  else:
+    print("Accesso consentito", user)
+    print("Bilancio: ", bilancio2)
+    
+  operazione= input("Si vuole eseguire un prelievo o un deposito? ")
+  if operazione == "deposito":
+    deposito= input("Indicare importo che si vuole depositare: ")
+
+    if user1:
+      bilancio1= bilancio1 + int(deposito)
+      print("Bilancio aggiornato: ", bilancio1)
+    else: 
+      bilancio2= bilancio2 + int(deposito)
+      print("Bilancio aggiornato: ", bilancio2)
+    
+  elif operazione == "prelievo":
+    prelievo= input("Quanto si vuole prelevare? ")
+
+    if user1:
+      if int(prelievo) > bilancio1:
+        print("Bilancio non sufficiente")
+      else:
+        bilancio1= bilancio1 - int(prelievo)
+        print("Bilancio aggiornato: ", bilancio1)
+    else:
+      if int(prelievo) > bilancio2:
+        print("Bilancio non sufficiente")
+      else:
+        bilancio2= bilancio2 - int(prelievo)
+        print("Bilancio aggiornato: ", bilancio2)
+ 
+  else:
+    print("ERRORE!")
+
+else:
+  print("Utente non trovato!")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

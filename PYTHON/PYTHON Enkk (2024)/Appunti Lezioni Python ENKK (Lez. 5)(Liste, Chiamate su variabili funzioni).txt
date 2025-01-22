@@ -1,0 +1,163 @@
+Ad esempio:
+
+name= "fedez"
+
+name.endswith("z") 
+
+#rappresenta la chiamata di una funzione. Questo tipo di chiamata a funzione prende il nome di CHIAMATE SU VARIABILI mediante l'uso del punto ('.') 
+
+
+# *** precisazione importante ***
+# funzioni chiamate su variabili e funzioni non chiamate su variabili
+testo = "Bellissimo testo"
+testo.startswith("x") # chiamata sulla variabile (uso del punto)
+len(testo) # chiamata generica 
+# non c'è una regola precisa per cui è len(x) e non x.len()... 
+# i motivi esistono, ma sono troppo approfonditi per la nostra conoscenza
+# quindi limitiamoci a imparare a memoria quali funzioni si applicano su una variabile e quali no. un indicazione può essere che funzioni "generiche" sono senza variabile
+
+
+
+
+
+#ESERCIZIO
+# ---------------------------------------------------------
+# Esempio di software. Detector di parole bannabili, implementato in una chat di Twitch
+# Ogni messaggio viene controllato e se contiene una parola bannabile viene scartata
+# Chiedere messaggio all'utente e stampare il messaggio se non è bannabile, un messaggio di alert se lo è
+
+p1 = "pandoro"
+p2 = "balocco"
+p3 = "fidanzato"
+p4 = "pubblicità"
+p5 = "adv"
+p6 = "onlyfans"
+p7 = "piedi"
+p8 = "divorzio"
+p9 = "separazione"
+p10 = "sesso"
+
+
+#Esecuzione
+
+#chiedere messaggio ad utente
+messaggio= input("Inserire qui il messaggio: ")
+
+if p1 in messaggio.lower() or p2 in messaggio.lower() or p3 in messaggio.lower() or p4 in messaggio.lower() or p5 in messaggio.lower() or p6 in messaggio.lower() or p7 in messaggio.lower() or p8 in messaggio.lower() or p9 in messaggio.lower() or p10 in messaggio.lower():
+  print("Alert!")
+else:
+  print(messaggio)
+
+
+
+
+
+
+
+
+
+
+
+#LISTE
+
+l= [10,20,30]
+
+print(l)
+print(type(l)) #il tipo è class list
+
+#accedere ad un elemento della lista
+print(l[1])
+#print(l[3]) out of range to the list
+
+#aggiungere un elemento alla lista
+#lo aggiugne nella coda della lista
+l.append(40)
+print(l)
+
+#rimuovere un elemento
+#indicare l'indice dell'elemento da rimuovere
+l.pop(1)
+print("Rimosso elemento 1 dalla lista\n", l)
+
+#ritorna il numero di elemnti nella lista
+print("Lunghezza lista\n", len(l))
+
+#le stringhe possono essere trattate come liste (ad esempio array di caratteri in C)
+testo= "ciao"
+print(testo[1])
+
+
+
+
+
+
+
+#VARIANTE ESERCIZIO DI SOPRA MODIFICATO CON L'USO DELLE LISTE
+
+parole= ["pandoro",
+         "balocco",
+         "fidanzato"
+         "pubblicità",
+         "adv",
+         "onlyfans",
+         "piedi",
+         "divorzio",
+         "separazione",
+         "sesso"]
+
+#Esecuzione
+
+#chiedere messaggio ad utente
+messaggio= input("Inserire qui il messaggio: ")
+
+#grazie alle liste qui sto dicendo di controllare se il messaggio dato in input è presente nella lista di parole.
+
+#poi se voglio aggiungere un elemento alla lista basta usare .append(parola da aggiungere) e basta. Invece nel esempio di sopra (che non fa uso della lista) bisognava prima assegnare la parola a una variabile e aggiungere questa variabile alla condizione dell'if. Con le liste la condizione del if non va modificata.
+parole.append("bocce")
+
+if messaggio.lower() in parole:
+  print("Alert!")
+else:
+  print(messaggio)
+
+
+
+
+
+
+
+
+
+#ALTRE FUNZIONI DA POTER USARE CON LE LISTE (.split() e .join())
+
+#Esercizio: suddividere una stringa direttamente in una lista
+
+testo= "Ciao amico mio"
+
+parola1= testo[0] + testo[1] + testo[2] + testo[3]
+parola2= testo[5] + testo[6] + testo[7] + testo[8] + testo[9]
+parola3= testo[11] + testo[12] + testo[13]
+
+l= [parola1,parola2,parola3]
+
+print(l)
+
+#per suddividere una stringa direttamente in una lista (come fatto sopra), invece di fare così vi è una funzione apposita: .split(" ")
+#.split(" ") prende una stringa e la separa in una lista di sottostringhe usando il carattere spazio. Cioè quando trovo il carattere spazio capisce che i caratteri che ha trovato prima del carattere spazio formano una sottostringa. Invece i caratteri che si trovano dopo il carattere spazio formano un'altra sottostringa.
+#Se invece del carattere spazio a .split passassi il carattere "a" (.split("a")), quando trova il carattere "a" capisce che i caratteri che ha trovato prima del carattere "a" formano una sottostringa e così per i caratteri che si trovano dopo il carattere "a".
+
+parole= testo.split(" ")	#crea una lista
+
+print(parole)
+
+
+
+#Invece la funzione .join() serve per unire una lista di stringhe in un'unica stringa.
+
+list= ["Carla","la","pazza"]
+unite= " ".join(list)
+print(unite)
+
+#stiamo dicendo a .join() di aggiungere il carattere spazio ad ogni stringa della lista (in modo da poter stanziare le parole). Se invece del carattere spazio mettessi un altro carattere userebbe quel carattere per stanziare le parole.
+
+

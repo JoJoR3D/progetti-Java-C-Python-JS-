@@ -1,0 +1,186 @@
+login= ["mirko angioni",
+        "lorenzo camillo",
+        "gianna greco"
+       ]
+
+amministratore= ["franco califano",
+                 "ilmigliorprof"
+                ]
+
+password= ["cicco",
+           "pallino",
+           "Cedenza78"]
+
+voti_math= ["27",
+            "25",
+            "30"
+           ]
+
+voti_english= ["27",
+               "25",
+               "30"
+              ]
+
+
+#ESECUZIONE
+
+#LOGIN AMMINISTRATORE
+
+log= input("studente o amministratore?\n")
+if log.lower() == "amministratore":
+  nome_utente= input("Inserire il proprio nome utente\n")
+  psw= input("Inserire la password\n")
+
+  if nome_utente.lower() == amministratore[0] and psw == amministratore[1]:
+    print("Accesso consentito!")
+    operazione= input("Si desidera inserire, visionare, aggiornareo eliminare?\n")
+    
+    #Inserire un nuovo voto
+    if operazione.lower() == "inserire":
+      print(login)
+      new_stud= input("Inserire nome completo nuovo studente\n")
+      if new_stud != login[0] and new_stud != login[1] and new_stud != login[2]:
+        op= input("Si desidera aggiungere un nuovo voto?si o no\n")
+        if op.lower() == "si":
+          materia= input("english o math?\n")
+          voto= input("Inserire voto\n")
+          if int(voto) <= 30:
+            if materia.lower() == "english":
+              voti_english.appen(int(voto))
+              print("Voto inserito:",int(voto))
+            elif materia.lower() == "math":
+              voti_math.append(int(voto))
+              print("Voto inserito:",int(voto))
+            else:
+              print("Errore! Materia non riconosciuta")
+          else:
+            print("Errore! Voto non registrabile")
+        else:
+          print("Arrivederci!")
+      else:
+        print("Studente già registrato!")
+        
+
+    #Visionare uno studente registrato con relativo voto
+    elif operazione.lower() == "visionare":
+      print(login)
+      alunno= input("Chi alunno si vuole visionare?\n")
+      if alunno.lower() == login[0] or alunno.lower() == login[1] or alunno.lower() == login[2]:
+        materia= input("Il voto di quale materia si vuole visionare? english o math?\n")
+        if materia.lower() == "english":
+          if alunno.lower() == login[0]:
+            print(voti_english[0])
+          elif alunno.lower() == login[1]:
+            print(voti_english[1])
+          elif alunno.lower() == login[2]:
+            print(voti_english[2])
+        else:
+          if alunno.lower() == login[0]:
+            print(voti_math[0])
+          elif alunno.lower() == login[1]:
+            print(voti_math[1])
+          elif alunno.lower() == login[2]:
+            print(voti_math[2])
+
+      else:
+        print("Errore! Alunno non trovato")
+        
+    
+    #Aggiornare voto studente
+    elif operazione.lower() == "aggiornare":
+      print(login)
+      alunno= input("Il voto di quale alunno si vuole visionare?\n")
+      if alunno.lower() == login[0] or alunno.lower() == login[1] or alunno.lower() == login[2]:
+        materia= input("Il voto di quale materia si vuole aggiornare? english o math?\n")
+        if materia.lower() == "english":
+          print(voti_english)
+          new_voto= input("Inserire nuovo voto\n")
+          if int(new_voto) <= 30:
+            if alunno.lower() == login[0]:
+              voti_english[0]= new_voto
+              print(voti_english)
+            elif alunno.lower() == login[1]:
+              voti_english[1]= new_voto
+              print(voti_english)
+            elif alunno.lower() == login[2]:
+              voti_english[2]= new_voto
+              print(voti_english)
+          else:
+            print("Errore inserito un voto non inseribile")
+
+        elif materia.lower() == "math":
+          print(voti_math)
+          new_voto= input("Inserire nuovo voto\n")
+          if int(new_voto) <= 30:
+            if alunno.lower() == login[0]:
+              voti_math[0]= new_voto
+              print(voti_math)
+            elif alunno.lower() == login[1]:
+              voti_math[1]= new_voto
+              print(voti_math)
+            elif alunno.lower() == login[2]:
+              voti_math[2]= new_voto
+              print(voti_math)
+          else:
+            print("Errore inserito un voto non inseribile")
+
+      else:
+        print("Errore! Alunno non trovato")
+        
+
+    #eliminare uno studente e il suo voto dalla lista
+    elif operazione.lower() ==  "eliminare":
+      print(login)
+      alunno= input("Quale studente si desidera eliminare dalla lista?\n")
+      if alunno.lower() == login[0]:
+        login.pop(0)
+      elif alunno.lower() == login[1]:
+        login.pop(1)
+      elif alunno.lower() == login[2]:
+        login.pop(2)
+      else:
+        print("Studente da eliminare non trovato")
+
+      print("Lista studenti aggiornata:\n", login)
+      
+  
+  else:
+    print("Nome utente o password errate!")
+
+
+
+#LOGIN STUDENTE
+
+elif log.lower() == "studente":
+  nome_utente= input("Inserire il proprio nome utente\n")  
+  psw= input("Inserire la password\n")
+
+  #Controllo autenticazione
+  if ( (nome_utente == login[0] and psw == password[0]) or (nome_utente == login[1] and psw == password[1]) or (nome_utente == login[2] and psw == password[2]) ):
+    print("Accesso eseguito!")
+    materia= input("I voti di quale materia si desidera visualizzare? math o english?\n")
+
+    if materia.lower() == "math":
+      if nome_utente == login[0]:
+        print("Voto math:",voti_math[0])
+      elif nome_utente == login[1]:
+        print("Voto math:",voti_math[1])
+      elif nome_utente == login[2]:
+        print("Voto math:",voti_math[2])
+        
+    elif materia.lower() == "english":
+      if nome_utente == login[0]:
+        print("Voto english:",voti_english[0])
+      elif nome_utente == login[1]:
+        print("Voto english:",voti_english[1])
+      elif nome_utente == login[2]:
+        print("Voto english:",voti_english[2])
+        
+    else:
+      print("Errore nell'inserimento della materia!")
+
+  else:
+    print("Nome studente o password errati!")  
+
+else:
+  print("Errore nel selezionare studente o amministratore!")

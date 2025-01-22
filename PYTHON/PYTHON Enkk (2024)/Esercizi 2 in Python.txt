@@ -1,0 +1,533 @@
+#Esercizio 007
+#Crittografia ROT-13
+#Il ROT-13 è un semplice cifrario monoalfabetico, in cui ogni lettera del messaggio da cifrare viene sostituita con quella posta 13 posizioni più avanti nell'alfabeto.
+
+#Scrivi una semplice funzione in grado di criptare una stringa passata, o decriptarla se la stringa è già stata precedentemente codificata.
+
+
+#FUNZIONE
+
+#trova la pasizione della lettera della parola inserita nell'alfabeto
+def find(alfabeto,parola):  
+  n= len(alfabeto)
+  indice= -1
+  
+  for i in range(0,n):
+    if parola == alfabeto[i]:
+      indice= i
+
+  return indice
+
+  
+
+def rot_13(parola):
+  alfabeto= ["a","b","c","d","e","f","g","h","i","j","k","l","m","n",
+     "o","p","q","r","s","t","u","v","w","x","y","z"]
+
+  word= []
+
+  lung_alfabeto= len(alfabeto)
+  lung_parole= len(parola)
+
+  for i in range(0,lung_parole):
+    index= find(alfabeto,parola[i].lower())
+    cont= 0
+    #print("Inizio:",index)
+
+    #se nella stringa da codificare o decodificare ci sono degli spazi vado all'else
+    if parola[i] != " ":
+      while cont < 13:
+        index = index + 1
+        cont += 1
+      
+        if index >= lung_alfabeto:
+          index= 0
+
+      #print("Fine:",index)
+      word.append(alfabeto[index])
+
+    #se nella stringa da codificare o decodificare ci sono degli spazi li inserisco
+    #semplicemente nella nuova stringa
+    else:
+      word.append(" ")
+
+  word_decifrata= "".join(word)
+
+  return word_decifrata
+  
+
+
+
+#MAIN
+parola= input("Inserire una parola o una stringa da decifrare o codificare\n")
+
+print(f"\nCodice: {rot_13(parola)}")
+                
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+exit(0)
+
+
+
+
+
+
+
+
+#Esercizio 006
+#La Libreria
+#Scrivi una funzione vendi_libri(), che aiuti nella gestione della vendita di libri in una libreria:
+
+# - Controlla se il libro richiesto è presente sugli scaffali della libreria
+# - Qualora il libro sia presente, ne decrementa il numero di copie (eventualmente rimuovendo il titolo) e ci segnala che la vendita ha avuto successo
+# - Se il libro non è disponibile, viene messo in un elenco di libri da ordinare e ci viene comunicato che la vendita non ha avuto successo
+
+#La funzione deve restituire valore booleano True o False in base all'esito della vendita.
+
+
+#FUNZIONE
+
+#function che controlla se il libro è presente nella liberia
+def check(libreria,libro):
+  check= -1
+  if libro.lower() in libreria:
+    valore= libreria[libro.lower()]
+    if valore > 0:  #il libro è presente nella libreria ed è disponibile
+      check= 1
+    elif valore == 0:  #il libro è presente nella libreria ma è terminato
+      check= 0
+
+  return check  #se è -1 vuol dire che il libro non è presente nella libreria
+
+
+
+
+def vendi_libri(libreria):
+  libro= input("Quale libro si vuole acquistare?\n")
+
+  #function che controlla se il libro è presente nella liberia
+  inspection= check(libreria,libro)
+
+  #il libro è presente nella libreria
+  if inspection == 1:
+
+    #controllo contiene il numero di copie (value) disponibili del libro selezionato (key)
+    controllo= (libreria.get(libro.lower()))
+    print(f"\nIl libro è presente nella liberie e vi sono disponibili {controllo} copie")
+ 
+    valore= controllo-1
+    #valore <= 0 Se con l'acquisto del libro scelto rimangono 0 copie, allora il libro verrà eliminato dalla libreria
+    if valore <= 0:  
+      del libreria[libro.lower()]  #eliminazione del libro dalla libreria
+      valore= 0
+      print(f"\nLibri rimanenti di {libro.lower()}: {valore}")
+      print(libreria.items())
+    else:
+      libreria[libro.lower()]= valore
+      print(f"\nLibri rimanenti di {libro.lower()}: {libreria[libro.lower()]}")
+
+    return True
+
+
+  #se il libro è presente nella liberia ma è terminato
+  elif inspection == 0:
+    libri_da_ordinare= []
+    libri_da_ordinare.append(libro)   
+    print(f"\nLibri da ordinare: {libri_da_ordinare}") 
+    print("\n",libreria.items())
+    del libreria[libro.lower()]
+
+    return False
+
+  #se il libro non è presente nella liberia
+  elif inspection == -1:
+    libri_da_ordinare= []
+    libri_da_ordinare.append(libro)   
+    print(f"\nLibri da ordinare: {libri_da_ordinare}")
+
+    return -1
+
+
+
+
+#MAIN
+libreria= {"il libro della giungla": 10, 
+           "il giovane holden": 15, 
+           "harry potter": 1, 
+           "la paura fa 90": 0}
+
+risultato_vendita= vendi_libri(libreria)
+
+if risultato_vendita == True:
+  print("\nL'acquisto è andato a buon fine! Arrivederci alla prossima")
+elif risultato_vendita == -1:
+  print("\nCi dispiace, ma al momento il libro selezionato non è presente nella libreria")
+elif risultato_vendita == False:
+  print("\nCi dispiace, ma al momento il libro selezionato è terminato")
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 005
+#Poesia Elettronica
+#Scrivi una semplice funzione rimario, a cui viene passato un elenco di parole come parametro e che riceva una parola inserita dall'utente tramite la funzione input.
+
+#La funzione rimario dovrà confrontare la parola inserita dall'utente con quelle presenti nell'elenco passato, alla ricerca di rime, intese come parole le cui ultime 3 lettere siano uguali alla parola inserita dall'utente.
+
+#Le rime dovranno essere quindi mostrate in output utilizzando il metodo join.
+
+
+#FUNZIONE
+
+def clean(elenco):
+  n= len(elenco)
+  #print(n)
+  for i in range(0,n):
+    elenco.pop()
+
+
+
+def rimario (elenco,parola):
+  n= len(elenco)
+  m= len(parola)
+
+  i= 0
+  dentro= 0
+  flag= True
+  rime= []
+  test= []
+
+  while i < n:
+    flag= True
+    cont= 0
+    word= elenco[i]
+    lung= len(word)
+    
+    if lung > m:
+      index= lung
+      index2= m
+      dentro= 1
+    else:
+      index= m
+      index2= lung
+      dentro= 2
+
+    index= index-1
+    index2= index2-1
+
+    #print(word)
+    
+    if dentro == 1:
+      for j in range(index,index-3,-1):
+        #print(f"1: {parola[index2],word[j],index2,j}")
+        if parola[index2] != word[j]:
+          flag= False
+          break
+        elif parola[index2] == word[j]:
+          test.append(parola[index2])
+          cont += 1        
+  
+        index2 -= 1
+
+    else:
+      if dentro == 2:
+        for j in range(index,index-3,-1):
+          #print(f"2: {parola[j],word[index2],j,index2,index-3}")
+          if parola[j] != word[index2]:
+            flag= False
+            break
+          elif parola[j] == word[index2]:
+            test.append(parola[j])
+            cont += 1
+
+          index2 -= 1
+
+    
+    if cont == 3:
+      #print("1",test)
+      for i in range(cont-1, -1, -1):
+        rime.append(test[i])
+      #print(rime)
+    else:
+      clean(test)
+
+    
+    if flag:
+      break
+    else:
+      i += 1
+
+  r= "".join(rime)
+  
+  return r
+
+
+
+#MAIN
+
+elenco= ["mare", "carregiata", "dormire"]
+parola= input("Inserire una parola:\n") #bere
+
+print(rimario(elenco,parola))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 004
+#Generatore di Password
+#Scrivi una funzione generatrice di password.
+
+#La funzione deve generare una stringa alfanumerica di 8 caratteri qualora l'utente voglia una password semplice, e di 20 caratteri ASCII qualora desideri una password più complicata.
+
+#FUNZIONE
+
+import random
+
+def password(ordine):
+  i= 0
+  caratteri= ["a", "b", "c", "d", "e", "f", "g", "h", "i", 
+            "l", "m", "n", "o", "p", "q", "r", "s", "t", 
+            "u", "v", "z"]
+  ASCII= ["$","%","&","/","(","=","?","^","+","*"]
+  numeri= ["0","1","2","3","4","5","6","7","8","9"]
+  
+  n_caratteri= len(caratteri)
+  n_ASCII= len(ASCII)
+  n_numeri= len(numeri)
+
+  passw= []
+  
+  if ordine == 0:
+    while i < 8:
+      scelta= random.choice(range(0,2))
+      if scelta == 0:
+        c= random.choice(range(0,n_caratteri-1))
+        passw.append(caratteri[c])
+      else:
+        n= random.choice(range(0,n_numeri-1))
+        passw.append(numeri[n])
+
+      i += 1
+        
+  elif ordine == 1:
+    while i < 20:
+      scelta= random.choice(range(0,3))
+      if scelta == 0:
+        c= random.choice(range(0,n_caratteri-1))
+        passw.append(caratteri[c])
+      elif scelta == 1:
+        n= random.choice(range(0,n_numeri-1))
+        passw.append(numeri[n])
+      elif scelta == 2:
+        a= random.choice(range(0,n_ASCII-1))
+        passw.append(ASCII[a])
+
+      i += 1
+
+
+  p= "".join(passw)
+  return p
+
+
+#MAIN
+scelta= input("Generatore di password. Selezionare 0 per una password semplice, 1 per una password più complicata\n")
+
+num_scelta= int(scelta)
+
+parola_ordine= password(num_scelta)
+print(parola_ordine)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 003
+#Palindromo... o non Palindromo?
+#Scrivi una funzione a cui viene passata una parola e riconosce se si tratta di un palindromo (parole che si leggono uguali anche al contrario) oppure no.
+
+#FUNZIONE
+
+def palindromo(stringa):
+  n= len(stringa)
+  n= n-1
+  str= []
+  flag=0
+
+  for i in range(n,-1,-1):
+    str.append(stringa[i])
+
+  for i in range(0,n):
+    if stringa[i] != str[i]:
+      flag=1
+      break
+
+  if flag == 0:
+    return True
+  elif flag == 1:
+    return False
+
+
+#MAIN
+s= input("Inserire una parola:\n")
+
+if palindromo(s) is True:
+  print("La parola inserita è palindroma")
+elif palindromo(s) is False:
+  print("La parola insertia non è palindroma")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 002
+#Reverser
+#Scrivi una funzione a cui passerai come parametro una stringa, e che manderà in print una versione inversa (al contrario) della stessa stringa. Ad esempio "abcd" diventerà "dcba".
+
+#Suggerimento: per risolvere questo esercizio in modo compatto potresti usare lo slicing.
+
+#FUNZIONE
+def funz(stringa):
+  n= len(stringa)
+  n= n-1
+  str= []
+
+  for i in range(n,-1,-1):
+    str.append(stringa[i])
+
+  s= "".join(str)
+  return(s)
+
+
+#MAIN
+s= input("Inserire una parola:\n")
+str= funz(s)
+print(str)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Esercizio 001
+#In Svezia, i bambini giocano spesso utilizzando un linguaggio un po' particolare detto rövarspråket, che significa "linguaggio dei furfanti": consiste nel raddoppiare ogni consonante di una parola e inserire una "o" nel mezzo. Ad esempio la parola "mangiare" diventa "momanongogiarore".
+
+#Scrivi una funzione in grado di tradurre una parola o frase passata tramite input in rövarspråket. Dopo aver tradotto una frase, il programma dovrà chiedere all'utente se intende tradurne un'altra, e in caso di risposta positiva, dovrà attendere l'inserimento di una nuova parola da parte dell'utente.
+
+
+
+def funzione(parola):
+  consonanti= ["b","c","d","f","g","h","l","m","n","p","q","r","s","t","u","v","z"]
+  n= len(parola)
+  m= len(consonanti)
+
+  new_parola= []
+
+  for i in range(0,n):
+    new_parola.append(parola[i])
+    for j in range(0,m):
+      if parola[i].lower() == consonanti[j]:
+        new_parola.append("o")
+        new_parola.append(parola[i])
+        break
+
+  stringa= "".join(new_parola)
+
+  return stringa
+
+
+parola= input("Inserire una parola:\n")
+rövarspråket= funzione(parola)
+print(rövarspråket)
+        
+        

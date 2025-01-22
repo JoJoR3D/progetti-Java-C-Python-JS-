@@ -1,0 +1,172 @@
+N.B. La lista può contenere tipi diversi di dati.
+
+N.B. Una stringa non può essere modificata, ad esempio non è possibile fare:
+stringa= "corro nel prato"
+stringa[0]= "cammino" 		#non posso farlo
+però posso usare delle funzioni che apportano delle modifiche come capitalize() che pone in maiuscolo la prima lettera della stringa, la funzione reverse() che permette di sostituire più sottostringhe della stringa
+
+N.B. invece la lista può essere modificata.
+
+N.B. la funzione sum() esegue la somma degli elementi di una lista passata come parametro.
+
+N.B. la funzione mean() esegue la media degli elementi di una lista passata come parametro.
+
+
+
+
+#Correzione compito assegnato nella lezione 5
+
+numeri= input("Inserire due numeri separati dalla virgola: ")
+#print(numeri)
+numero3= input("Inserire un terzo numero: ")
+
+num= numeri.split(",")
+#print(num)
+#print(type(num[0])) 
+#num è classe lista, mente il suo contenuto alla posizione 0 (num[0]) è di tipo str
+num.append(numero3)
+
+print("Primo numero della lista: ",num[0],"\nSecondo numero della lista: ",num[1],"\nTerzo numero della lista: ",num[2])
+
+numero1= int(num[0])
+numero2= int(num[1])
+numero3= int(num[2])
+
+# - Verificare se i tre numeri sono tutti diversi fra loro
+if numero1 == numero2 or numero1 == numero3 or numero2 == numero3:
+  print("Alcuni dei tre numeri sono uguali tra loro")
+else:
+  print("I tre numeri inseriti sono diversi tra loro")
+
+
+
+
+
+print("\n\n")
+
+
+
+
+#LEZIONE 6
+
+#Questi esercizi NON sono generici. Non sappiamo ancora trattare le liste con generalità e dinamicità, ma vogliamo allenarci a scrivere codice che coinvolga le liste.
+
+# Creare una lista che contiene nella posizione i-esima la somma degli elementi i-esimi di l1 e l2
+l1  = [ 1 , 2 , 3 , 4 ] #lunghezza fissa, valori variabili
+l2  = [ 4 , 3 , 2 , 1 ] #lunghezza fissa, valori variabili
+
+l= [l1[0]+l2[0], l1[1]+l2[1], l1[2]+l2[2], l1[3]+l2[3]]
+
+print("lista che contiene nella posizione i-esima la somma degli elementi i-esimi di l1 e l2", l)
+
+
+
+print("\n\n")
+
+
+
+# Creare una lista che contiene la somma degli elementi i-esimi di l1 e l2 ma solo per gli i contenuti in l3
+l1  = [ 1 , 5 , 10 , 1 ] #lunghezza fissa, valori variabili
+l2  = [ 1 , 5 , 10 , 1 ] #lunghezza fissa, valori variabili
+l3  = [ 1 , 2 ] #lunghezza fissa, valori variabili
+
+l= [ l1[l3[0]] + l2[l3[0]], l1[l3[1]] + l2[l3[1]] ]
+
+#l3 contiene gli indici da considerare per eseguire la somma, quindi come indici uso l3[0] e l3[1] e no 1 e 2 perchè se si vanno a cambiare i valori di l3 (cioè invece di 1,2 fossero 0,1) l'algoritmo scritto così: l= [l1[1] + l2[1], l1[2] + l2[2] non funzionerebbe.
+
+print("lista che contiene la somma degli elementi i-esimi di l1 e l2 ma solo per gli i contenuti in l3", l)
+
+
+print("\n\n")
+
+
+
+# Creare una lista che contiene nell'indice i-esimo la somma degli elementi della i-esima lista => sum()
+l1  = [ 1 , 2 , 3 , 4 ] #lunghezza e valori variabili
+l2  = [ 2 , 3 , 4 , 5 ] #lunghezza e valori variabili
+l3  = [ 3 , 5 , 2 , 8 ] #lunghezza e valori variabili
+l4  = [ 11 , 5 , 1 ]   #lunghezza e valori variabili
+
+print(sum(l1))
+
+l= [ sum(l1), sum(l2), sum(l3), sum(l4) ]
+
+print("lista che contiene nell'indice i-esimo la somma degli elementi della i-esima lista mediante l'uso della function sum()", l)
+
+
+
+print("\n\n")
+
+
+
+# modificare l1 così che ad ogni suo elemento vengono sommati il ​​massimo e il minimo trovati nella lista l2 => è possibile usare le funzioni max() e min()
+l1  = [ 100 , 300 ] #lunghezza fissa, valori variabili
+l2  = [ 590 , 120 , 102 , 1 ] #lunghezza e valori variabili
+
+print(l1,l2)
+
+massimo= max(l2)
+minimo= min(l2)
+
+print("Massimo:",massimo,"\nMinimo:",minimo)
+
+l1= [ l1[0]+massimo+minimo, l1[1]+massimo+minimo ]
+
+print(l1)
+
+
+
+print("\n\n")
+
+
+
+# trovare il valore massimo fra le due liste l1 e l2 => mediante l'uso dell'operatore + nella funzione max()
+l1  = [ 1 , 5 , 10 , 1 ] #lunghezza e valori variabili
+l2  = [ 12 , 3 ] #lunghezza e valori variabili
+
+massimo= max(l1 + l2)
+
+print("L'elemento massimo tra le liste l1 e l2 è:",massimo)
+
+
+
+print("\n\n")
+
+
+
+# creare una lista che contiene nella posizione i-esima il numero di occorrenze di i in l1, sapendo che l1 può avere solo 0, 1 e 2 come valori => usare la function count()
+l1  = [ 0 , 1 , 0 , 0 , 2 , 1 , 2 , 0 ] #lunghezza variabile, valori variabili ma solo nell'intervallo 0-2
+
+zero= l1.count(0)
+uno= l1.count(1)
+due= l1.count(2)
+
+lista= [zero, uno, due]
+
+print(lista)
+
+
+
+print("\n\n")
+
+
+
+# controllare che le due liste siano identiche => reverse tanto per
+l1  = [ 1 , 5 , 10 , 1 ] #lunghezza fissa, valori variabili
+l2  = [ 1 , 5 , 10 , 1 ] #lunghezza fissa, valori variabili
+
+if l1[0] == l2[0] and l1[1] == l2[1] and l1[2] == l2[2] and l1[3] == l2[3]:
+  print("Le due liste sono identiche!")
+else:
+  print("Le due liste non sono identiche!")
+
+
+
+
+#Altra soluzione:
+
+verifica= l1[0] == l2[0] and l1[1] == l2[1] and l1[2] == l2[2] and l1[3] == l2[3]
+
+#stamperà True se la condizione è vera (le due liste sono uguali), Flase se la condizione è falsa (le due liste non sono uguali)
+print(verifica)
+  

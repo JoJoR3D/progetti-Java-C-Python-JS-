@@ -1,0 +1,192 @@
+#DICHIARAZIONE VARIABILI con FUNZIONE print()
+
+>>> pippo=10
+>>> print(pippo)
+10
+>>> print(pippo,pippo)
+10 10
+>>> pippo=5
+>>> print(pippo)
+5
+>>> pippo=10
+>>> print(pippo)
+10
+>>> chat=1
+>>> chat=chat-1
+>>> print(chat)
+0
+>>> enk=chat+2
+>>> print(enk)
+2
+>>> enk=chat*2
+>>> print(enk)
+0
+>>> enk= chat + chat
+>>> print(enk)
+0
+
+
+#SCAMBIARE DUE VALORI a=5, b=10
+
+>>> a=5
+>>> b=10
+>>> print(a,b)
+5 10
+>>> c=a
+>>> a=b
+>>> b=c
+>>> print(a,b)
+10 5
+
+
+#STRINGHE E USO FUNCTION type() che ritorna il tipo di una variabile. Anche se inserisco un solo carattere mi ritorna il tipo str(stringa)
+
+>>> c= "ciao mondo!"
+>>> print(c)
+ciao mondo!
+>>> type(c)
+<class 'str'>
+
+#La funzione type() accetta un solo parametro di input
+>>> type(a,b)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: type() takes 1 or 3 arguments
+
+>>> type(a)
+<class 'int'>
+>>> type(b)
+<class 'int'>
+>>> d=5.5
+>>> print(d)
+5.5
+>>> type(d)
+<class 'float'>
+>>> f=c
+>>> print(f)
+ciao mondo!
+>>> f='c'
+>>> print(f)
+c
+>>> type(f)
+<class 'str'>
+
+#L'operando '+' si comporta in modo diverso in base al tipo di dato che ha alla sua destra e sinistra (OVERLOADING OPERATORE). Se ha due numeri esegue la somma, se ha due stringhe esegue la concatenazione.
+>>> n=a+d
+>>> print(n)
+15.5
+>>> type(n)
+<class 'float'>
+>>> m="cesso"
+>>> p=" a pedali"
+>>> i=m+p
+>>> print(i)
+cesso a pedali
+>>>
+>>>
+
+
+#FUNZIONE input()
+
+>>> #funzione input()
+>>> dato_da_utente= input("Metti il nome utente: ")
+Metti il nome utente: Lino
+>>> print(dato_da_utente)
+Lino
+>>> type(dato_da_utente)
+<class 'str'>
+
+#La funzione input restituisce e ottiene in input un valore di tipo 'str'
+#quindi anche se gli do un intero lui lo considera con una stringa.
+>>> dato_da_utente= input("Inserisci nome utente: ")
+Inserisci nome utente: 10
+>>> print(dato_da_utente)
+10
+>>> type(dato_da_utente)
+<class 'str'>
+
+
+#Problema: Abbiamo un bilancio (totale nostro conto in banca) e mediante la funzione input() forniamo il totale della nostra spesa giornaliera. Alla fine vogliamo ottenre il totale del nostro bilancio dopo aver tolto la spesa giornaliera.
+
+>>> bilancio=230
+>>> spesa=input("Inserisci spesa in euro: ")
+Inserisci spesa in euro: 50
+>>> tot_bilancio= bilancio - int(spesa)
+>>> print(tot_bilancio)
+180
+#Poichè spesa è una stringa (perchè gli passiamo la funzione input che restituisce una stringa) e 
+bilancio è di tipo int dobbiamo eseguire il CAST di spesa.
+#CASTING:
+#Il CAST si esegue ponendo la variabile da castare tra le parentesi e specificando il tipo del casting: int(spesa).
+
+
+#Abbiamo visto che l'operatore '+' può eseguire una somma di due numeri (interi o float o una combinazione dei due) oppure una concatenazione di due stringhe.
+Però se gli passiamo un int e un str, esempio: 
+a=2;
+b="ciao";
+print(c=a+b)
+#Mi ritorna errore perchè non può eseguire la concatenazione tra un int e una stringa.
+#invece se uso l'operatore '*', quello che mi ritorna è due volte la stringa "ciao":
+print(c=a*b)
+ciaociao
+#Queste sono delle semplificazioni che fornisce python, modi veloci per scrivere qualcosa (zuccheri sintattici).
+#N.B. Anche se facessi l'inveso, il risultato sarebbe sempre lo stesso:
+print(c=b*a)
+ciaociao
+#Applica la proprietà commutativa (cambiando l'ordine degli addendi il risultato non cambia)
+#Invece se uso l'operatore '/' (diviso) mi ritorna errore in entrambi i casi (a/b e b/a).
+
+#Altro esempio con il CASTING:
+>>> a="due"
+>>> b=4
+>>> print(a+""+str(b))
+
+
+
+
+#COMPITO PER CASA:
+# Scrivere un programma chiamato numerator
+# Il programma deve:
+# - Scrivere un messaggio di benvenuto al lancio, indicando il suo nome
+# - Chiedere all'utente quattro numeri 
+# - Sommare i numeri e stamparli a video
+# - Chiedere un quinto numero
+# - Sottrarlo dalla somma precedente e stamparlo a video
+
+# Usare se necessario delle stampe per spiegare i valori che vengono mostrati all'utente
+
+>>> print("Salve utente, sono numeretor\n")
+Salve utente, sono numeretor
+
+>>> num1= input("Inserisci 1 di 4 numeri: ")
+Inserisci 1 di 4 numeri: 2
+>>> num2= input("Inserisci 2 di 4 numeri: ")
+Inserisci 2 di 4 numeri: 3
+>>> num3= input("Inserisci 3 di 4 numeri: ")
+Inserisci 3 di 4 numeri: 4
+>>> num4= input("Inserisci 4 di 4 numeri: ")
+Inserisci 4 di 4 numeri: 6
+
+>>> somma4= int(num1) + int(num2) + int(num3) + int(num4)
+>>> print(somma4)
+15
+
+>>> num5= input("Inserisci un quinto numero: ")
+Inserisci un quinto numero: 10
+>>> sottrazione= somma4 - int(num5)
+>>> print("Risultato finale dell'esercizio: " + str(sottrazione))
+Risultato finale dell'esercizio: 5
+#Poichè voglio stampare una stringa: "Risultato finale dell'esercizio: " e poi il risultato che è un int (sottrazione), posso concatenarli tramite l'operatore '+', però devo fare il CAST a stringa di sottrazione (poicè non posso fare la concatenazione tra un str e un int).
+#Oppure più semplicemente è possibile fare:
+>> print("Risultato finale dell'esercizio: ", risultato)
+Risultato finale dell'esercizio:  5
+
+
+
+N.B. 
+Python è un linguaggio interpretato, ovvero esegue direttamente il codice linea per linea.
+Non è un linguaggio compilato, come il C.
+In informatica un linguaggio compilato è un linguaggio di programmazione implementato          tramite un compilatore, un programma che converte il codice sorgente in codice macchina.         Differisce dal linguaggio interpretato, in cui il codice è eseguito direttamente da un           programma detto interprete.
+
+
+

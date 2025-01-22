@@ -1,0 +1,44 @@
+# Chiedere una frase all'utente e stampare il numero di parole che contiene (consideriamo lo spazio come separatore di parola)
+
+# Poi chiedere all'utente quale parola vuole cambiare. L'utente fornirà la posizione della parola (verificare che sia una posizione esistente)
+
+# Sostituire la prima parola della frase con la parola nella posizione fornita dall'utente.
+
+# Esempio: 'Ciao come stai?' fornire 2 diventa 'come Ciao stai?'
+# Fare dunque attenzione alla distinzione tra indici e posizioni.
+
+
+
+
+#ESECUZIONE
+
+# Chiedere una frase all'utente e stampare il numero di parole che contiene (consideriamo lo spazio come separatore di parola)
+
+frase= input("Inserire una frase\n")
+
+lista= frase.split(" ")
+
+parole= len(lista)
+
+print(parole)
+
+
+# Poi chiedere all'utente quale parola vuole cambiare. L'utente fornirà la posizione della parola (verificare che sia una posizione esistente)
+
+print(lista)
+elim= input("Quale parola si vuole cambiare? Indicare la posizione partendo da 1\n")
+
+#check
+if int(elim) > parole:
+  print("Posizione inesistente!")
+else:
+  print( "La parola selezionata è:",lista[int(elim)-1] )
+
+
+# Sostituire la prima parola della frase con la parola nella posizione fornita dall'utente.
+
+contenitore= lista[0]
+lista[0]= lista[int(elim)-1]
+lista[int(elim)-1]= contenitore
+
+print(lista)
