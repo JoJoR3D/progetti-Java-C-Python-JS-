@@ -1,0 +1,122 @@
+
+body{
+    background-color: #212529;
+    color: white;
+    font-family: "Inter", serif;
+}
+
+.cont-linea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.margine{
+    margin-top: 2.3rem;
+}
+
+.linea{
+    border-top: 1px solid white;
+    padding: 0 !important;
+    width: 100%;
+    opacity: 0.5;
+}
+
+
+
+
+/* NAVBAR */
+
+.nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    background-color: #212529d3 !important;
+}
+
+.tendina-aperta{
+    display: none;
+    margin-right: 1rem;
+}
+
+
+
+
+
+
+/* CARRELLO */
+
+.carrello{
+    /*102px è l'altezza della navbar. L'ho ottenuta grazie al JS*/
+    /*margin-top: 0px;*/
+    position: absolute;
+    top: 0px;
+    width: 100%;
+}
+
+.allineamento-testo{
+    text-align: right;
+}
+
+
+
+
+
+
+/* VINILE */
+
+.vinile{
+    display: flex !important; 
+    align-items: flex-start;
+}
+
+.copertina{
+    border-radius: 5px;
+}
+
+.form{
+    justify-content: right;
+}
+
+.segno-piu:hover{
+    cursor:pointer;
+}
+
+.segno-meno:hover{
+    cursor:pointer;
+}
+
+.dustbin{
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-input{
+    text-align: center;
+}
+
+
+
+
+
+/* RIEPILOGO ORDINE */
+
+.num-oggetti{
+    display: none;
+    /*max-width: 30px;
+    width: 30px;*/
+    background-color: #0D6EFD;
+    padding: 0.1rem 0.6rem;
+    font-size: 0.80rem;
+    border-radius: 5px;
+}
+
+.btn-spedizione{
+    padding: 4px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
