@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins", serif;
+    color: rgb(88, 81, 81);
+}
+
+
+
+
+
+
+
+/* CAROSELLO */
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 100%;
+    background-color: rgb(247, 195, 98);
+}
+
+.scheda-film{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 3px solid rgb(88, 81, 81);
+    border-radius: 4px;
+    width: 50%;
+
+    background-color: rgba(248, 222, 174, 0.5);
+
+    transition: all 0.5s;
+}
+
+.scheda-film:hover{
+    cursor: pointer;
+    border: 5px solid rgb(66, 44, 44);
+}
+
+.scheda-film a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(88, 81, 81);
+}
+
+.scheda-film a:hover{
+    color: blue;
+}
+
+.div-titolo-film-carosello h2 a{
+    font-size: 1.25rem;
+}
+
+.scheda-film p{
+    font-size: 1.25rem;
+}
+
+.div-titolo-film-carosello{
+    margin-bottom: 1rem;
+}
+
+.paragrafo-carosello .attori a{
+    font-size: 1.25rem;
+}
+
+.div-img-carosello{
+    padding: 0.1rem;
+}
+
+#img-carosello{
+    max-width: 100%;
+}
+
+.paragrafo-carosello{
+    padding: 0.5rem;
+}
+
+
+
+
+
+
+
+/* MEDIA QUERY */
+
+@media screen and (min-width: 700px){
+
+    .div-titolo-film-carosello h2 a{
+        font-size: 2rem;
+    }
+    .scheda-film p{
+        font-size: 2rem;
+    }
+
+    .paragrafo-carosello .attori a{
+        font-size: 2rem;
+    }
+}
+
+
+
+
+
+
+
+

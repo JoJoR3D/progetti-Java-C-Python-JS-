@@ -1,0 +1,368 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins", serif;
+    color: rgb(88, 81, 81);
+}
+
+.show{
+    display: none;
+}
+
+
+
+/*HEADER*/
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    background-color: rgba(248, 222, 174, 0.5);
+}
+
+.nome-cinema{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    width: 66.66%;
+}
+
+#logo{
+    max-width: 100%;
+    width: 60%;
+
+    /*per posizionarlo meglio nella pagina*/
+    position: relative;
+
+    top: -1rem;
+    left: -1.75rem;
+}
+
+.nome{
+    display: none;
+    font-size: 1.25rem;
+}
+
+.menu{
+    display: none;
+    max-width: 100%;
+}
+
+.menu ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 0.5rem;
+    /*padding-right: 1rem;*/
+    list-style-type: none;
+
+    font-weight: 500;
+    width: 20%;
+
+    position: relative;
+    right: -4rem;
+}
+
+.menu li{
+    transition: 1s;
+    justify-content: right;
+}
+
+.menu li:hover{
+    color: blue;
+    cursor: pointer;
+}
+
+.menu li a{
+    color: rgb(88, 81, 81);
+    text-decoration: none;
+}
+
+.menu li a:hover{
+    color: blue;
+    cursor: pointer;
+}
+
+.menu-icona{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 10%;
+    margin-right: 1.5rem;
+}
+
+#hamburger{
+    max-width: 100%;
+    width: 100%;
+}
+
+#hamburger:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+/* RICERCA */
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 1rem;
+
+    background-color: rgba(248, 222, 174, 0.5);
+}
+
+.campo-ricerca{
+    text-align: left;
+    max-width: 40%;
+    width: 80%;
+    padding: 0.75rem;
+    border: 2px solid rgb(88, 81, 81);
+    border-radius: 4px;
+}
+
+
+
+
+
+
+
+/* FILM RICERCATO */
+
+.filmRicercato{
+
+    padding-top: 2rem;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* CAROSELLO */
+
+main{
+    max-width: 100%;
+    height: 100vh;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: rgb(247, 195, 98);
+}
+
+.carosello{
+    max-width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 0.50rem;
+
+    text-align: center;
+
+    position: relative;
+    top: 20rem;
+}
+
+.fa-angle-left{
+    position: absolute;
+    left: 0rem;
+    font-size: 1.5rem;
+}
+
+.fa-angle-left:hover{
+    cursor: pointer;
+    color: black;
+}
+
+.fa-angle-right{
+    position: absolute;
+    right: 0rem;
+    font-size: 1.5rem;
+}
+
+.fa-angle-right:hover{
+    cursor: pointer;
+    color: black;
+}
+
+.schedeFilm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 0.5rem;
+
+    width: 90%;
+
+    position: absolute;
+}
+
+.scheda-film{
+    border: 3px solid rgb(88, 81, 81);
+    border-radius: 4px;
+    width: 33.33%;
+
+    background-color: rgba(248, 222, 174, 0.5);
+
+    transition: all 0.5s;
+}
+
+.scheda-film:hover{
+    cursor: pointer;
+    border: 5px solid rgb(66, 44, 44);
+}
+
+.scheda-film a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.80rem;
+    color: rgb(88, 81, 81);
+}
+
+.scheda-film a:hover{
+    color: blue;
+}
+
+.schedeFilm p{
+    font-size: 0.80rem;
+}
+
+.div-titolo-film-carosello{
+    margin-bottom: 1rem;
+}
+
+.titolo-film-carosello{
+    max-width: 100%;
+    font-size: 1rem;
+}
+
+.div-img-carosello{
+    padding: 0.1rem;
+}
+
+#img-carosello{
+    max-width: 100%;
+}
+
+.paragrafo-carosello{
+    padding: 0.5rem;
+}
+
+
+
+
+
+
+
+/* MEDIA QUERY */
+
+@media screen and (min-width: 700px){
+    
+    #logo{
+        width: 50%;
+    }
+
+    .nome{
+        display: block;
+        font-size: 2rem;
+    }
+
+    .menu{
+        display: block;
+    }
+
+    .menu ul{
+        right: 1rem;
+    }
+
+    .menu li{
+        font-size: 1.25rem;
+    }
+
+    .menu-icona{
+        display: none;
+        margin-right: 5rem;
+    }
+
+    #hamburger{
+        width: 60%;
+    }
+
+    .campo-ricerca{
+        padding: 1.5rem;
+        font-size: 1.25rem;
+    }
+
+    .carosello{
+        top: 30rem;
+    }
+
+    .fa-angle-left{
+        font-size: 3rem;
+    }
+    
+    .fa-angle-right{
+        font-size: 3rem;
+    }
+
+    .schedeFilm{
+        gap: 1.15rem;
+    }
+
+    .schedeFilm p{
+        font-size: 1.25rem;
+    }
+
+    .scheda-film a{
+        font-size: 1.25rem;
+    }
+
+    .titolo-film-carosello{
+        font-size: 1.5rem;
+    }
+
+    .filmRicercato{
+        font-size: 1.25rem;
+    }
+}
+
+
+
+
+
+
+
+
