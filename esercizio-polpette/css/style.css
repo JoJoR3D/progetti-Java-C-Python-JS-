@@ -1,0 +1,62 @@
+
+body{
+    background-color: black;
+    color: black;
+
+    background-image: url("../images/img3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+
+.container{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+
+img {
+    width: 100%; /* L'immagine occuperà il 100% della larghezza del suo contenitore */
+    height: auto; /* L'altezza si adatterà automaticamente in proporzione alla larghezza */
+  }
+
+
+h2{
+    font-size: 18px;
+    margin-top: 40px;
+    scroll-margin-top: 20px;
+}
+
+
+p, li{
+    scroll-margin-top: 20px;
+    font-size: 18px;
+}
+
+
+a{
+    color: orange;
+}
+
+
+.spazio-paragrafo{
+    margin-top: 40px;
+} 
+
+
+.spazio-punti{
+    margin-bottom: 70px;
+}
+
+
+.wrapper{
+    border-top: 8px solid white;
+    padding-top: 30px;
+} 
